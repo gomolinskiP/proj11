@@ -11,9 +11,8 @@ img {
     transition: 1s ease-in-out;
 }
 
-img:hover,
-img.hover_effect {
-    scale: 1.1;
+img:hover{
+    transform: scaleY(1.1);
 }
 
 
@@ -21,15 +20,14 @@ td {
     transition: 1s ease-in-out;
     font-family: 'Times New Roman', Times, serif;
     font-weight: 800;
-    filter: blur(0.4px);
+    filter: saturate(0.6);
 
 
 }
 
-td:hover,
-td.hover_effect {
+td:hover{
     transform: scaleX(1.1);
-    filter: blur(0px);
+    filter: saturate(1);
 }
 
 
@@ -50,6 +48,8 @@ td.hover_effect {
 }
 
 body {
+
+
     animation-name: skala;
     animation-duration: 8s;
     animation-direction: alternate;
