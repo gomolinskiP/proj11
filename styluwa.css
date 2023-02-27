@@ -2,30 +2,43 @@ img {
     -webkit-transition: 1s ease-in-out;
     -moz-transition: 1s ease-in-out;
     -o-transition: 1s ease-in-out;
-    transition: 1s ease-in-out;}
+    transition: 1s ease-in-out;
+}
 
-img:hover, img:active {
-    transform: skewY(-4deg);
+@media(hover: hover) and (pointer: fine) {
+
+    img:hover,
+    img:active {
+        transform: skewY(-4deg);
+    }
 }
 
 td {
     transition: 1s ease-in-out;
 }
 
-td:hover, td:active{
-    transform: skewY(3deg);
+@media(hover: hover) and (pointer: fine) {
+
+    td:hover,
+    td:active {
+        transform: skewY(3deg);
+    }
 }
 
 
 @keyframes skala {
-    from {transform: skewY(-2deg);}
-    to {transform: skewY(0deg);}
-  }
+    from {
+        transform: skewY(-2deg);
+    }
 
-body{
-animation-name: skala;
-animation-duration: 4s;
-animation-direction: alternate-reverse;
-animation-iteration-count: infinite;
+    to {
+        transform: skewY(0deg);
+    }
 }
 
+body {
+    animation-name: skala;
+    animation-duration: 4s;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+}
