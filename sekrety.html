@@ -8,9 +8,14 @@
     <title>𝓹𝓮𝓹𝓽𝓲—🌸</title>
     <link rel="icon" type="image/x-icon" href="http://www.clipartbest.com/cliparts/pi5/Xnj/pi5Xnjd5T.gif">
     <link rel="stylesheet" href="styluwa.css">
-    <script src="hoverontouch.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script type="text/javascript">
-        var HoverOnTouch = new HoverOnTouch();
+        $(document).ready(function () {
+            $('.hover').on('touchstart touchend', function (e) {
+                e.preventDefault();
+                $(this).toggleClass('hover_effect');
+            });
+        });
     </script>
 </head>
 
@@ -71,10 +76,14 @@
         </tr>
         <tr>
             <td>
-                <strong><em><font size="+1" color="gold">(σ｀д′)σ</font></em></strong>
+                <strong><em>
+                        <font size="+1" color="gold">(σ｀д′)σ</font>
+                    </em></strong>
             </td>
             <td colspan="2" align="center" background="https://data.whicdn.com/images/274438763/original.gif">
-                <font size="-4">✨⭐✨⭐✨</font> <font size="+1" color="gold">~(ʘᴥʘ)~</font> <font size="-4">✨⭐✨⭐✨</font>
+                <font size="-4">✨⭐✨⭐✨</font>
+                <font size="+1" color="gold">~(ʘᴥʘ)~</font>
+                <font size="-4">✨⭐✨⭐✨</font>
             </td>
         </tr>
         <tr style="height: 20px;"></tr>

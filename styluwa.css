@@ -1,3 +1,9 @@
+.hover {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
 img {
     -webkit-transition: 1s ease-in-out;
     -moz-transition: 1s ease-in-out;
@@ -5,46 +11,48 @@ img {
     transition: 1s ease-in-out;
 }
 
-@media(hover: hover) and (pointer: fine) {
-
-    img:hover,
-    img:active {
-        scale: 1.1;
-    }
+img:hover,
+img.hover_effect {
+    scale: 1.1;
 }
+
 
 td {
     transition: 1s ease-in-out;
     font-family: 'Times New Roman', Times, serif;
     font-weight: 800;
+    filter: blur(0.6px);
+
 
 }
 
-@media(hover: hover) and (pointer: fine) {
-
-    td:hover,
-    td:active {
-        transform: scaleX(1.1);
-    }
+td:hover,
+td.hover_effect {
+    transform: scaleX(1.1);
+    filter: blur(0px);
 }
 
+
+
+.hoverontouch--aktiv .komorka {
+    scale: 0.5;
+
+}
 
 @keyframes skala {
     from {
         transform: skewY(-1deg);
-        filter: blur(0.6px);
     }
 
     to {
         transform: skewY(1deg);
-        filter: blur(0px);
     }
 }
 
 body {
     animation-name: skala;
     animation-duration: 8s;
-    animation-direction: alternate-reverse;
+    animation-direction: alternate;
     animation-iteration-count: infinite;
 }
 
@@ -59,7 +67,7 @@ body {
     }
 }
 
-a{
+a {
     animation-name: kolor;
     animation-duration: 3s;
     animation-direction: normal;
@@ -69,11 +77,11 @@ a{
     font-weight: bolder;
     opacity: 0.4;
     text-decoration: none;
-    
+
     font-stretch: ultra-expanded;
 }
 
-a:hover{
+a:hover {
     background-color: black;
     filter: saturate(2);
     opacity: 1;
