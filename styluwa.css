@@ -28,7 +28,7 @@ table:hover{
 hr{
     border-style: groove;
     border-radius: 0px;
-    width: 500px;
+    width: 300px;
 }
 
 td {
@@ -46,7 +46,6 @@ td:hover{
 }
 
 .cellHover{
-    background-color: red;
     transform: scaleX(1.1);
     filter: saturate(1);
 }
