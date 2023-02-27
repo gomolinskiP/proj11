@@ -4,22 +4,22 @@ img {
     -o-transition: 1s ease-in-out;
     transition: 1s ease-in-out;}
 
-img:hover {
-    transform: skewY(-17deg);
+img:hover, img:active {
+    transform: skewY(-4deg);
 }
 
 td {
     transition: 1s ease-in-out;
 }
 
-td:hover{
-    transform: skewY(10deg);
+td:hover, td:active{
+    transform: skewY(3deg);
 }
 
 
 @keyframes skala {
-    from {scale: 0.95;}
-    to {scale: 1;}
+    from {transform: skewY(-2deg);}
+    to {transform: skewY(0deg);}
   }
 
 body{
