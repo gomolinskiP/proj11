@@ -1,0 +1,31 @@
+img {
+    -webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+    transition: 1s ease-in-out;}
+
+img:hover {
+    transform: skewY(-17deg);
+}
+
+td {
+    transition: 1s ease-in-out;
+}
+
+td:hover{
+    transform: skewY(10deg);
+}
+
+
+@keyframes skala {
+    from {scale: 0.95;}
+    to {scale: 1;}
+  }
+
+body{
+animation-name: skala;
+animation-duration: 4s;
+animation-direction: alternate-reverse;
+animation-iteration-count: infinite;
+}
+
