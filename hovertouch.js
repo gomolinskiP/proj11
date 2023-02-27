@@ -1,13 +1,15 @@
 console.log("elo");
 
-var cellH = document.getElementsByClassName("cellH")[0];
+var cellz = document.querySelectorAll("cellHover");
 
-cellH.addEventListener("touchstart", function(){
-cellH.classList.add("cellHover");
-console.log("hej");
+cellz.forEach(e=>{
+    e.addEventListener("touchstart", function(){
+        e.classList.add("cellHover");
+        console.log("hej");
+        })
+        
+        e.addEventListener("touchend", function(){
+            e.classList.remove("cellHover");
+            console.log("narazie");
+            })
 })
-
-cellH.addEventListener("touchend", function(){
-    cellH.classList.remove("cellHover");
-    console.log("narazie");
-    })
