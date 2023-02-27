@@ -12,9 +12,24 @@ img {
 }
 
 img:hover{
-    transform: scaleY(1.1);
+    transform: scaleY(1.2);
 }
 
+table{
+    transition: 1s ease-in-out;
+    transform: scaleX(0.9);
+
+}
+
+table:hover{
+    transform: scaleX(1);
+}
+
+hr{
+    border-style: groove;
+    border-radius: 0px;
+    width: 500px;
+}
 
 td {
     transition: 1s ease-in-out;
@@ -30,11 +45,10 @@ td:hover{
     filter: saturate(1);
 }
 
-
-
-.hoverontouch--aktiv .komorka {
-    scale: 0.5;
-
+.cellHover{
+    background-color: red;
+    transform: scaleX(1.1);
+    filter: saturate(1);
 }
 
 @keyframes skala {
