@@ -5,6 +5,8 @@
 }
 
 img {
+    user-select: none;
+    -webkit-touch-callout: none;
     -webkit-transition: 1s ease-in-out;
     -moz-transition: 1s ease-in-out;
     -o-transition: 1s ease-in-out;
@@ -32,6 +34,9 @@ hr{
 }
 
 td {
+    user-select: none;
+    -webkit-touch-callout: none;
+
     transition: 1s ease-in-out;
     font-family: 'Times New Roman', Times, serif;
     font-weight: 800;
