@@ -1,6 +1,8 @@
 console.log("elo");
 
-let cellz = document.querySelectorAll("cellH");
+let cellz = document.querySelectorAll(".cellH");
+
+console.log(cellz);
 
 cellz.forEach(function(e){
     e.addEventListener("touchstart", function(){
