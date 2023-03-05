@@ -97,7 +97,7 @@ a:hover {
 
 
 .element:hover {
-    transform: translateZ(200px) scaleX(1.22);
+    transform: translateZ(200px) scaleX(1.44);
     border-width: 4px;
     filter: saturate(1.33) blur(0);
     opacity: 1;
