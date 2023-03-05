@@ -34,10 +34,12 @@ a:hover {
 @keyframes skala {
     0% {
         transform: perspective(3000px) rotateX(11deg) rotateY(-6deg) translateZ(130px) translateY(40px);
+        filter: hue-rotate(0deg)
     }
 
     100% {
         transform: perspective(3000px) rotateX(-11deg) rotateY(6deg) translateZ(130px) translateY(40px);
+        filter: hue-rotate(-90deg);
     }
 }
 
