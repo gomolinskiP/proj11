@@ -11,65 +11,70 @@ img {
     -moz-transition: 1s ease-in-out;
     -o-transition: 1s ease-in-out;
     transition: 1s ease-in-out;
-}
-
-img:hover{
-    transform: scaleY(1.2);
-}
-
-table{
-    transition: 1s ease-in-out;
-    transform: scaleX(0.9);
 
 }
 
-table:hover{
-    transform: scaleX(1);
+img:hover {
+    transform: scaleY(1.2) translateZ(400px);
 }
 
-hr{
+.mainTab {
+    vertical-align: middle;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform-style: preserve-3d;
+
+
+
+
+
+}
+
+table:hover {}
+
+hr {
+    transform: translateZ(100px);
     border-style: groove;
     border-radius: 0px;
     width: 300px;
+    border-width: 3px;
 }
 
-td {
+.mainTab>.cellH {
+    display: contents;
     user-select: none;
     -webkit-touch-callout: none;
-
+    transform-style: preserve-3d;
     transition: 1s ease-in-out;
     font-family: 'Times New Roman', Times, serif;
     font-weight: 800;
     filter: saturate(0.6);
+    offset-position: 0px 0px 100px;
+    transform: scaleX(1) translateZ(900px);
+
+
+
 }
 
-td:hover{
-    transform: scaleX(1.1);
+td:hover {
+    transform: scaleX(1.1) translateZ(900px);
     filter: saturate(1);
 }
 
-.cellHover{
-    transform: scaleX(1.1);
-    filter: saturate(1);
-}
+.cellH {}
 
-@keyframes skala {
-    from {
-        transform: skewY(-1deg);
-    }
+.cellHover {}
 
-    to {
-        transform: skewY(1deg);
-    }
-}
+
 
 body {
+    display: grid;
+    vertical-align: middle;
+    position: relative;
+    transform-style: preserve-3d;
+    margin: auto;
+    place-items: center;
 
 
-    animation-name: skala;
-    animation-duration: 8s;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
 }
 
 
@@ -89,7 +94,6 @@ a {
     animation-direction: normal;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
-
     font-weight: bolder;
     opacity: 0.4;
     text-decoration: none;
@@ -103,4 +107,73 @@ a:hover {
     opacity: 1;
 
     box-shadow: 0px 0px 50px 0px red;
+}
+
+.zet {
+    color: red;
+    position: absolute;
+    transform-style: preserve-3d;
+    top: 0px !important;
+    left: 50%;
+    z-index: 300;
+    transform: rotateX(100deg);
+}
+
+@keyframes skala {
+    from {
+        transform: perspective(30000px) rotateX(10deg) rotateY(11deg) translateZ(130px) translateY(100px);
+        zoom: 0.3;
+    }
+
+    to {
+        transform: perspective(30190px) rotateX(-11deg) rotateY(-10deg) translateZ(160px) translateY(150px);
+    }
+    zoom: 3;
+}
+
+.bg {
+    background-image: url("https://cdn.wallpapersafari.com/14/40/jwluik.jpg");
+    position: relative;
+    width: 70%;
+    height: 110%;
+
+    display: flex;
+    flex-direction: column;
+    flex-flow: wrap;
+    vertical-align: middle;
+    gap: 1%;
+    align-content: space-around;
+    justify-items: center;
+
+    transform-style: preserve-3d;
+    animation-name: skala;
+    animation-duration: 1.337s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function:linear;
+
+}
+
+.element {
+    transform: translateZ(100px);
+    border: black 1px solid;
+    transition: ease-in-out 0.88s;
+    height: fit-content;
+    white-space: nowrap;
+    padding:0px;
+    text-align: center;
+
+    filter: blur(0.5px);
+}
+
+.single{
+    margin-left: 
+}
+
+
+.element:hover{
+    transform: translateZ(300px) scaleX(1.22);
+    border-width: 4px;
+    filter: saturate(1.33);
+    filter: blur(0);
 }
