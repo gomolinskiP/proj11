@@ -33,13 +33,13 @@ a:hover {
 
 @keyframes skala {
     0% {
-        transform: perspective(3000px) rotateX(11deg) rotateY(-6deg) translateZ(130px) translateY(40px);
-        filter: hue-rotate(0deg)
+        transform: perspective(3000px) rotateX(11deg) rotateY(-22deg) translateZ(130px) translateY(40px);
+        
     }
 
     100% {
-        transform: perspective(3000px) rotateX(-11deg) rotateY(6deg) translateZ(130px) translateY(40px);
-        filter: hue-rotate(-90deg);
+        transform: perspective(3000px) rotateX(-11deg) rotateY(22deg) translateZ(130px) translateY(40px);
+        
     }
 }
 
@@ -154,4 +154,25 @@ hr{
 
 table{
     width: 100%;
+}
+
+@keyframes hue {
+    0% {
+        filter: hue-rotate(0deg);
+        
+    }
+
+    100% {
+        filter: hue-rotate(360deg);
+        
+    }
+}
+
+
+body{
+    animation-name: hue;
+    animation-duration: 17;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
 }
