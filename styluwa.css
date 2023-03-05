@@ -171,7 +171,7 @@ table{
 
 body{
     animation-name: hue;
-    animation-duration: 17;
+    animation-duration: 17s;
     animation-direction: normal;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
