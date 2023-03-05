@@ -33,26 +33,31 @@ a:hover {
 
 @keyframes skala {
     0% {
-        transform: perspective(3000px) rotateX(10deg) rotateY(11deg) translateZ(130px) translateY(80px);
+        transform: perspective(1000px) rotateX(10deg) rotateY(11deg) translateZ(130px) translateY(80px);
     }
 
     100% {
-        transform: perspective(3019px) rotateX(-11deg) rotateY(-10deg) translateZ(160px) translateY(80px);
+        transform: perspective(3000px) rotateX(-11deg) rotateY(-10deg) translateZ(160px) translateY(80px);
     }
 }
 
 .bg {
     background-image: url("https://cdn.wallpapersafari.com/14/40/jwluik.jpg");
+    background-size: cover;
     position: relative;
-    width: 70%;
+    width: 60%;
     height: fit-content;
     margin: auto auto;
+    padding:0.5vw;
     display: flex;
     flex-direction: column;
     flex-flow: wrap;
     vertical-align: middle;
     align-content: space-evenly;
     justify-content: center;
+    gap: 0.3vw;
+
+
 
     transform-style: preserve-3d;
     animation-name: skala;
@@ -68,14 +73,16 @@ a:hover {
 
 .element {
     transform: translateZ(100px);
-    border: black 1px solid;
-    transition: ease-in-out 0.88s;
+    border: #0004 1px solid;
+    border-radius: 1px;
+    transition: ease-out 0.22s;
     height: fit-content;
+    width: fit-content;
     white-space: nowrap;
     padding: 0px;
     text-align: center;
     align-self: center;
-    filter: blur(0.7px);
+    filter: saturate(0.9) blur(0.4px);
     margin: 0px auto;
     opacity: 0.9;
     font-size: 1vw;
@@ -87,18 +94,63 @@ a:hover {
 
 
 .element:hover {
-    transform: translateZ(300px) scaleX(1.22);
+    transform: translateZ(200px) scaleX(1.22);
     border-width: 4px;
-    filter: saturate(1.33);
-    filter: blur(0);
+    filter: saturate(1.33) blur(0);
     opacity: 1;
 }
 
 
-img{
-    height: 6rem;
+img {
+    width: 12vw;
+    height: 12vw;
 }
 
-h1{
+h1 {
     word-wrap: break-word;
+}
+
+.single {
+    transform-style: preserve-3d;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    vertical-align: middle;
+    align-content: space-evenly;
+    justify-content: center;
+    margin: auto;
+    gap: 0.3vw;
+
+
+}
+
+.vertGroup{
+    transform-style: preserve-3d;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.horGroup{
+    transform-style: preserve-3d;
+    display: flex;
+    flex-direction: row;
+
+    vertical-align: middle;
+    align-content: space-evenly;
+    justify-content: center;
+    gap: 0.1vw;
+
+}
+h1{
+    font-family: fantasy;
+}
+
+hr{
+    transform: translateZ(90px);
+}
+
+table{
+    width: 100%;
 }
