@@ -63,15 +63,7 @@ a:hover {
 
     transform-style: preserve-3d;
 
-
-    animation-name: skala;
-    animation-duration: 14s;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-
-
-
+    transform: perspective(3000px) rotateX(var(--rotateX)) rotateY(var(--rotateY)) translateZ(130px) translateY(40px);
 }
 
 
