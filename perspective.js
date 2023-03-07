@@ -25,12 +25,12 @@ function rotateBG(event, element) {
     const middleX = window.innerWidth / 2;
     const middleY = window.innerHeight / 2;
 
-    const offsetX = ((x - middleX) / middleX) * 13;
-    const offsetY = ((y - middleY) / middleY) * 8;
+    const offsetX = ((x - middleX) / middleX) * 18;
+    const offsetY = ((y - middleY) / middleY) * 11;
 
     //console.log(offsetX, offsetY);
     console.log(offsetX, offsetY, event.type);
 
-    element.style.setProperty("--rotateX", -offsetY + "deg");
-    element.style.setProperty("--rotateY", offsetX + "deg");
+    element.style.setProperty("--rotateX", offsetY + "deg");
+    element.style.setProperty("--rotateY", -offsetX + "deg");
 }
