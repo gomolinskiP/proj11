@@ -9,6 +9,7 @@ document.addEventListener("touchmove", (e) => {
     rotateBG(e, bg);
 });
 
+
 function rotateBG(event, element) {
     if (event.type == "mousemove") {
         x = event.clientX;
