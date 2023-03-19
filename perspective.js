@@ -26,8 +26,8 @@ function rotateBG(event, element) {
     const middleX = window.innerWidth / 2;
     const middleY = window.innerHeight / 2;
 
-    const offsetX = ((x - middleX) / middleX) * 18;
-    const offsetY = ((y - middleY) / middleY) * 11;
+    const offsetX = ((x - middleX) / middleX) * 4.5;
+    const offsetY = ((y - middleY) / middleY) * 4.5;
 
     //console.log(offsetX, offsetY);
     console.log(offsetX, offsetY, event.type);

@@ -8,68 +8,50 @@
     <title>𝓹𝓮𝓹𝓽𝓲—🌸</title>
     <link rel="icon" type="image/x-icon" href="http://www.clipartbest.com/cliparts/pi5/Xnj/pi5Xnjd5T.gif">
     <link rel="stylesheet" href="styluwa.css">
+    <script src="draging.js" defer></script>
 
 </head>
 
-<body leftmargin="10" rightmargin="10" topmargin="10" bottommargin="10" ontouchstart="" onmouseover=""
-    style="filter: hue-rotate(-90deg)" onmousemove="">
+<body>
+    <script src="form.js" defer></script>
+
+
     <div class="bg">
-        <div class="single">
+        <div class="single draggable" draggable="true">
             <hr color="green" size="3px" width="33px" class="">
         </div>
 
 
-        <div class="single">
-            <div class="element">
-                <font size="+3"><a href="index.html">🫵🏵️🤙</a></font>
-            </div>
-        </div>
-        <div class="single">
-            <div class="element">
-                <font size="-3" color="green">czesc nazwam sie</font><br>
-                <font color="gold">
-                    ──▄▄▄·──▄▄▄─.─▄▄▄·─▄▄▄▄▄▄─▄▪ <br>
-                    ▐█─▄█──▀▄.▀·─▐█─▄█•──██───██ <br>
-                    ─██▀·──▐▀▀▪▄──██▀·──▐█.▪──▐█·<br>
-                    ▐█▪·•──▐█▄▄▌─▐█▪·•───▐█▌·──▐█▌<br>
-                    .▀──────▀▀▀─.▀─────▀▀▀───▀▀▀
-                </font>
-            </div>
-        </div>
-        <div class="vertGroup">
-            <h1 class="element"> MY DREAM ISX UNDAR CONSTRUCTION</h1>
-            <div class="horGroup">
+        <div class="single draggable" draggable="true">
+            <div class="vertGroup">
                 <div class="element">
-                    <img src="https://66.media.tumblr.com/c86f6b13d705d0f028708171522e3179/tumblr_oc4boqRirI1qju2zso1_400.gif"
-                        height="200px">
+                    <font size="+3"><a href="index.html" class="bigLink">🫵🏵️🤙</a></font>
+                </div>
+
+            </div>
+        </div>
+        <div class="vertGroup draggable" draggable="true">
+            <h1 class="element draggable" draggable="true"> MY DREAM ISX UNDAR CONSTRUCTION</h1>
+            <div class="horGroup draggable" draggable="true">
+                <div class="element">
+                    <textarea placeholder="(ʘᴥʘ) wpisz swuj sekret" rows="5" form="sekret"></textarea>
                 </div>
                 <div class="element">
-                    <img src="img/ai-puppy.png" height="200px">
+                    <h1>(○｀ 3′○) </h1>
                 </div>
             </div>
         </div>
-        <div class="vertGroup">
+        <div class="vertGroup draggable" draggable="true">
             <div class="element">
-                <font size="-3" color="red">
-                    <font size="-3" color="purple">____</font>▄▀▀▀▄▄▄▄▄▄▄▀▀▀▄<br>
-                    <font size="-3" color="purple">───</font>█<font size="-3" color="magenta">▒▒░░░░░░░░░▒▒
-                    </font>█<br>
-                    <font size="-3" color="purple">────</font>█<font size="-3" color="magenta">░░</font>█
-                    <font size="-3" color="magenta">░░░░░</font>█<font size="-3" color="magenta">░░</font>
-                    █<br>
-                    <font size="-3" color="purple">─</font>▄▄<font size="-3" color="purple">──</font>█<font size="-3"
-                        color="magenta">░░░</font>▀█▀<font size="-3" color="magenta">░░░</font>█
-                    <font size="-3" color="purple">──</font>▄▄<br>
-                    █<font size="-3" color="magenta">░░</font>█<font size="-3" color="purple">─</font>▀▄
-                    <font size="-3" color="magenta">░░░░░░░</font>▄▀<font size="-3" color="purple">─</font>█
-                    <font size="-3" color="magenta">░░</font>█
-                </font>
+                <input type="color" form="sekret" id="kolor">
             </div>
             <div class="element">
-                <font size="+4" color="red">𝓹𝓮𝓹𝓽𝓲</font>
+                <form id="sekret">
+                    <input type="submit" value="wysli secret">
+                </form>
             </div>
         </div>
-        <div class="single">
+        <div class="single draggable" draggable="true">
             <div class="element">
                 <font color="gold">(σ｀д′)σ</font>
             </div>
@@ -79,22 +61,20 @@
                 <font>✨⭐✨⭐✨</font>
             </div>
         </div>
-        <div class="single">
-            <div class="element">
-                <table align="center" cellpadding="5px"
-                    background="https://www.gifstop.com/images/backgrounds/purplewave2.gif">
-                    <tr>
-                        <td align="center" class="cellH element element"> ◈ </td>
-                        <td align="center" style="width: 30%" class="cellH element"><a href="sekrety.html">sekrety</a>
-                        </td>
-                        <td align="center" class="cellH element"> ◈ </td>
-                        <td align="center" style="width: 30%" class="cellH element"><a href="nowy.html">tajemnice</a>
-                        </td>
-                        <td align="center" class="cellH element"> ◈ </td>
-                        <td align="center" style="width: 30%" class="cellH element"><a href="">skandale</a></td>
-                        <td> ◈ </td>
-                    </tr>
-                </table>
+        <div class="single draggable" draggable="true" id="test">
+            <div class="horGroup" style="width: 80%; background-image: url(https://www.gifstop.com/images/backgrounds/purplewave2.gif);">
+
+
+                <div class="element"> ◈ </div>
+                <div class="element"><a href="sekrety.html">sekrety</a>
+                </div>
+                <div class="element"> ◈ </div>
+                <div class="element"><a href="nowy.html">tajemnice</a>
+                </div>
+                <div class="element"> ◈ </div>
+                <div class="element"><a href="">skandale</a></div>
+                <div> ◈ </div>
+
             </div>
         </div>
         <div class="single">
