@@ -41,6 +41,7 @@ function rotateBG(event, element) {
 }
 
 
+
 containters.forEach(container => {
     container.addEventListener('dragstart', evStart => {
 
@@ -71,8 +72,8 @@ containters.forEach(container => {
 
 
 
-                dragging.style.setProperty("left", moveX + "px");
-                dragging.style.setProperty("top", moveY + "px");
+                if(moveX < 500 && moveX>-500) dragging.style.setProperty("left", moveX + "px");
+                if(moveY < 500 && moveY>-500) dragging.style.setProperty("top", moveY + "px");
                 console.log(moveX, moveY)
                 rotateBG(e, container)
                 shouldWait = false;
@@ -95,4 +96,12 @@ containters.forEach(container => {
             
         }
     })
-})
+});
+
+document.addEventListener("scroll", (event) => {
+    {
+        lastKnownScrollPosition = window.scrollY;
+      
+        console.log(lastKnownScrollPosition)
+    }
+});
