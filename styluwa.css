@@ -86,8 +86,8 @@ a:hover {
 }
 
 .subPage{
-    width: 100%;
-    height: 0%;
+    width: 90%;
+    max-height: 0%;
 position: relative;
     margin: 0;
     padding: 0;
@@ -100,16 +100,18 @@ position: relative;
     border: 0px black solid;
     transform-style: preserve-3d;
     visibility: collapse;
-transition:  0.8s ease-in-out;
+transition:  0.8s ease-in;
 opacity: 0;
-scale: 1 0;
+scale: 0 0;
 
 }
 
 .subPage:target{
+transition:  1.8s ease-in-out;
 visibility: visible;
 opacity: 1;
-height: 70%;
+max-height: 100%;
+height: fit-content;
 scale: 1 1;}
 
 
@@ -240,7 +242,7 @@ h1 {
 
 hr {
     transform: translateZ(90px);
-    width: 100%;
+    width: 33vw;
     transition: ease-in-out 1s;
     border-radius: 0px;
     border-width: 3px;
@@ -249,6 +251,7 @@ hr {
 
 hr:hover {
     height: 30px;
+    width: 44vw;
     border-width: 9px;
 }
 
@@ -277,7 +280,8 @@ table {
 
 
 body {
-    height: 100vh;
+    max-height: 100vh;
+    max-width: 100vw;
     font-family: Arial Rounded MT;
     animation-name: hue;
     animation-duration: 17s;

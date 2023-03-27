@@ -1,5 +1,21 @@
 console.log("DRAGING JS");
 
+function linkKlik(){
+    console.log("klik link");
+    link = document.getElementsByClassName("bigLink");
+    
+    console.log(link[0].href);
+
+    let currentLink = link[0].href;
+    if(currentLink.search("home") == -1){
+        link[0].href = "#home";
+    }
+    else
+    {
+        link[0].href = "#";
+    }
+    }
+
 const draggables = document.querySelectorAll('.draggable');
 
 const containters = document.querySelectorAll('body');
@@ -85,6 +101,7 @@ containters.forEach(container => {
         })
     });
 
+
     let shouldWaitMouse = false;
     container.addEventListener('mousemove', e=>{
         if(!shouldWaitMouse){
@@ -92,6 +109,18 @@ containters.forEach(container => {
             rotateBG(e, container);
             setTimeout(()=>{
                 shouldWaitMouse = false;
+            }, "10")
+            
+        }
+    })
+
+    let shouldWaitTouch = false;
+    container.addEventListener('touchmove', e=>{
+        if(!shouldWaitTouch){
+            shouldWaitTouch = true;
+            rotateBG(e, container);
+            setTimeout(()=>{
+                shouldWaitTouch = false;
             }, "10")
             
         }
