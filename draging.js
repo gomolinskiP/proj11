@@ -7,7 +7,6 @@ function changeSmall() {
     link[0].style.setProperty("font-size", "8rem");
 }
 
-
 function changeBig() {
     link = document.getElementsByClassName("bigLink");
 
