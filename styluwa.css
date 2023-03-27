@@ -5,10 +5,12 @@ html {
 @keyframes kolor {
     from {
         filter: drop-shadow(0 0 3px red);
+        rotate: -1deg;
     }
 
     to {
         filter: drop-shadow(0 0 3px magenta);
+        rotate: 1deg;
     }
 }
 
@@ -17,9 +19,9 @@ html {
 a {
     animation-name: kolor;
     animation-duration: 3s;
-    animation-direction: normal;
+    animation-direction: alternate;
     animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
+    animation-timing-function: linear;
     font-size: 7rem;
     color: gold;
     text-decoration-thickness: 1px;
@@ -36,7 +38,7 @@ a {
 }
 
 a:hover {
-    background-color: black;
+    background-color: #000a;
     filter: saturate(2);
     scale: 1.1 1.7;
     opacity: 1;
@@ -45,7 +47,8 @@ a:hover {
 }
 
 .bigLink {
-    font-size: 16rem;
+    font-size: 20rem;
+    transition: 0.9s ease-in-out;
 }
 
 
@@ -85,10 +88,10 @@ a:hover {
 
 }
 
-.subPage{
+.subPage {
     width: 90%;
     max-height: 0%;
-position: relative;
+    position: relative;
     margin: 0;
     padding: 0;
     display: flex;
@@ -100,19 +103,20 @@ position: relative;
     border: 0px black solid;
     transform-style: preserve-3d;
     visibility: collapse;
-transition:  0.8s ease-in;
-opacity: 0;
-scale: 0 0;
+    transition: 0.8s ease-in;
+    opacity: 0;
+    scale: 0 0;
 
 }
 
-.subPage:target{
-transition:  1.8s ease-in-out;
-visibility: visible;
-opacity: 1;
-max-height: 100%;
-height: fit-content;
-scale: 1 1;}
+.subPage:target {
+    transition: 1.8s ease-in-out;
+    visibility: visible;
+    opacity: 1;
+    max-height: 100%;
+    height: fit-content;
+    scale: 1 1;
+}
 
 
 .element {
@@ -134,7 +138,7 @@ scale: 1 1;}
     position: relative;
 }
 
- 
+
 
 
 
@@ -288,12 +292,12 @@ body {
     animation-direction: alternate;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
-
+    overflow: hidden;
     background-image: url("https://cdn.wallpapersafari.com/14/40/jwluik.jpg");
     background-size: cover;
 
 
-    
+
 }
 
 textarea,

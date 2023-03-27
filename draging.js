@@ -1,20 +1,34 @@
 console.log("DRAGING JS");
 
-function linkKlik(){
+function changeSmall() {
+    link = document.getElementsByClassName("bigLink");
+
+    link[0].href = "#home";
+    link[0].style.setProperty("font-size", "8rem");
+}
+
+function changeBig() {
+    link = document.getElementsByClassName("bigLink");
+
+    link[0].href = "#";
+    link[0].style.setProperty("font-size", "20rem");
+}
+
+
+function linkKlik() {
     console.log("klik link");
     link = document.getElementsByClassName("bigLink");
-    
+
     console.log(link[0].href);
 
     let currentLink = link[0].href;
-    if(currentLink.search("home") == -1){
-        link[0].href = "#home";
+    if (currentLink.search("home") == -1) {
+        changeSmall();
     }
-    else
-    {
-        link[0].href = "#";
+    else {
+        changeBig();
     }
-    }
+}
 
 const draggables = document.querySelectorAll('.draggable');
 
@@ -88,8 +102,8 @@ containters.forEach(container => {
 
 
 
-                if(moveX < 500 && moveX>-500) dragging.style.setProperty("left", moveX + "px");
-                if(moveY < 500 && moveY>-500) dragging.style.setProperty("top", moveY + "px");
+                if (moveX < 500 && moveX > -500) dragging.style.setProperty("left", moveX + "px");
+                if (moveY < 500 && moveY > -500) dragging.style.setProperty("top", moveY + "px");
                 console.log(moveX, moveY)
                 rotateBG(e, container)
                 shouldWait = false;
@@ -103,26 +117,26 @@ containters.forEach(container => {
 
 
     let shouldWaitMouse = false;
-    container.addEventListener('mousemove', e=>{
-        if(!shouldWaitMouse){
+    container.addEventListener('mousemove', e => {
+        if (!shouldWaitMouse) {
             shouldWaitMouse = true;
             rotateBG(e, container);
-            setTimeout(()=>{
+            setTimeout(() => {
                 shouldWaitMouse = false;
             }, "10")
-            
+
         }
     })
 
     let shouldWaitTouch = false;
-    container.addEventListener('touchmove', e=>{
-        if(!shouldWaitTouch){
+    container.addEventListener('touchmove', e => {
+        if (!shouldWaitTouch) {
             shouldWaitTouch = true;
             rotateBG(e, container);
-            setTimeout(()=>{
+            setTimeout(() => {
                 shouldWaitTouch = false;
             }, "10")
-            
+
         }
     })
 });
@@ -130,7 +144,7 @@ containters.forEach(container => {
 document.addEventListener("scroll", (event) => {
     {
         lastKnownScrollPosition = window.scrollY;
-      
+
         console.log(lastKnownScrollPosition)
     }
 });
