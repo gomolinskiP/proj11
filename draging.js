@@ -1,5 +1,24 @@
 console.log("DRAGING JS");
 
+let kolor;
+const kolorDefault = "#0000ff";
+window.addEventListener("load", startup, false);
+
+function startup() {
+    kolor = document.querySelector("#kolor");
+    kolor.value = kolorDefault;
+    kolor.addEventListener("input", updateFirst, false);
+    console.log("startup");
+}
+
+function updateFirst(event) {
+    const textArea = document.querySelector("textarea");
+    if (textArea) {
+        textArea.style.color = event.target.value;
+        textArea.style.borderColor = event.target.value;
+    }
+}
+
 function changeSmall() {
     link = document.getElementsByClassName("bigLink");
 
@@ -62,8 +81,8 @@ function rotateBG(event, element) {
     const middleY = window.innerHeight / 2;
 
 
-    const offsetX = ((x - middleX) / middleX) * 4.5;
-    const offsetY = ((y - middleY) / middleY) * 4.5;
+    const offsetX = ((x - middleX) / middleX) * 1.5;
+    const offsetY = ((y - middleY) / middleY) * 1.5;
     //console.log(offsetX, offsetY);
 
     element.style.setProperty("--rotateX", offsetY + "deg");
@@ -89,7 +108,6 @@ containters.forEach(container => {
 
         container.addEventListener('dragover', e => {
             e.preventDefault();
-
             if (!shouldWait) {
                 shouldWait = true
                 dragging = document.querySelector('.dragging');
@@ -102,11 +120,11 @@ containters.forEach(container => {
 
 
 
-                if (moveX < 500 && moveX > -500) dragging.style.setProperty("left", moveX + "px");
-                if (moveY < 500 && moveY > -500) dragging.style.setProperty("top", moveY + "px");
-                console.log(moveX, moveY)
+                dragging.style.setProperty("left", moveX + "px");
+                dragging.style.setProperty("top", moveY + "px");
+                //console.log(moveX, moveY)
                 rotateBG(e, container)
-                shouldWait = false;
+                setTimeout(() => { shouldWait = false; }, "0")
 
 
             }
@@ -145,6 +163,6 @@ document.addEventListener("scroll", (event) => {
     {
         lastKnownScrollPosition = window.scrollY;
 
-        console.log(lastKnownScrollPosition)
+        // console.log(lastKnownScrollPosition)
     }
 });
