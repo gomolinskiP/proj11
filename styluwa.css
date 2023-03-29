@@ -344,9 +344,8 @@ textarea:hover {
 
 .draggable {
     cursor: grab;
-    position: absolute;
-    left: 0px;
-    right: 0px;
+    position: fixed;
+
 
     -webkit-user-drag: none;
     user-select: none;
@@ -370,7 +369,7 @@ textarea:hover {
 
 
 .naklejka {
-    position: absolute;
+    position: fixed;
 
     filter: blur(0px) saturate(1) contrast(1) hue-rotate(0deg);
     opacity: 1;

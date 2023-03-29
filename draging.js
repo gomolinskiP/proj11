@@ -51,7 +51,7 @@ function linkKlik() {
 
 const draggables = document.querySelectorAll('.draggable');
 
-const containters = document.querySelectorAll('body');
+const containters = document.querySelectorAll('.bg');
 
 
 draggables.forEach(draggable => {
@@ -73,6 +73,11 @@ function rotateBG(event, element) {
     if (event.type == "touchmove") {
         x = event.touches[0].clientX;
         y = event.touches[0].clientY;
+    }
+
+    if (event.type == "devicemotion") {
+        x = event.accelerationIncludingGravity.x;
+        y = event.accelerationIncludingGravity.y;
     }
 
     //console.log(x, y);
@@ -112,9 +117,6 @@ containters.forEach(container => {
                 shouldWait = true
                 dragging = document.querySelector('.dragging');
 
-
-
-
                 const moveX = currentX + e.clientX - evStart.clientX;
                 const moveY = currentY + e.clientY - evStart.clientY;
 
@@ -122,7 +124,7 @@ containters.forEach(container => {
 
                 dragging.style.setProperty("left", moveX + "px");
                 dragging.style.setProperty("top", moveY + "px");
-                //console.log(moveX, moveY)
+                console.log(currentX, moveY)
                 rotateBG(e, container)
                 setTimeout(() => { shouldWait = false; }, "0")
 
@@ -158,6 +160,21 @@ containters.forEach(container => {
         }
     })
 });
+
+if (window.DeviceMotionEvent) {
+    window.addEventListener("devicemotion", motion, false);
+} else {
+    console.log("DeviceMotionEvent is not supported");
+}
+
+function motion(event) {
+    console.log("Accelerometer: "
+        + event.accelerationIncludingGravity.x + ", "
+        + event.accelerationIncludingGravity.y + ", "
+        + event.accelerationIncludingGravity.z
+    );
+    rotateBG(e, containters);
+}
 
 document.addEventListener("scroll", (event) => {
     {
