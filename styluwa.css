@@ -84,7 +84,7 @@ a:hover {
 
     transform-style: preserve-3d;
 
-    transform: perspective(30000px) rotateX(var(--rotateX)) rotateY(var(--rotateY)) translateZ(130px) scaleY(0.8) scaleZ(3) translateY(10vh);
+    transform: perspective(30000px) rotateX(var(--rotateX)) rotateY(var(--rotateY)) translateZ(130px) rotateZ(var(--rotateZ, 0deg)) scaleY(0.8) scaleZ(3) translateY(10vh);
 
 }
 

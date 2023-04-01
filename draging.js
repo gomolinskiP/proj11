@@ -68,30 +68,38 @@ function rotateBG(event, element) {
     if (event.type == "mousemove" || event.type == "dragover") {
         x = event.clientX;
         y = event.clientY;
+
+        const middleX = window.innerWidth / 2;
+        const middleY = window.innerHeight / 2;
+        let offsetX = ((x - middleX) / middleX) * 1.5;
+        let offsetY = ((y - middleY) / middleY) * 1.5;
+        element.style.setProperty("--rotateX", offsetY + "deg");
+        element.style.setProperty("--rotateY", -offsetX + "deg");
     }
 
     if (event.type == "touchmove") {
         x = event.touches[0].clientX;
         y = event.touches[0].clientY;
+
     }
 
-    if (event.type == "devicemotion") {
-        x = event.accelerationIncludingGravity.x;
-        y = event.accelerationIncludingGravity.y;
+    if (event.type == "deviceorientation") {
+        x = event.beta / 180 * 1.5;
+        y = event.gamma / 180 * 1.5;
+
+        element.style.setProperty("--rotateX", y + "deg");
+        element.style.setProperty("--rotateY", -x + "deg");
     }
 
     //console.log(x, y);
 
-    const middleX = window.innerWidth / 2;
-    const middleY = window.innerHeight / 2;
 
 
-    const offsetX = ((x - middleX) / middleX) * 1.5;
-    const offsetY = ((y - middleY) / middleY) * 1.5;
+
+
     //console.log(offsetX, offsetY);
 
-    element.style.setProperty("--rotateX", offsetY + "deg");
-    element.style.setProperty("--rotateY", -offsetX + "deg");
+
 }
 
 
@@ -159,22 +167,20 @@ containters.forEach(container => {
 
         }
     })
+
+    function motion(e) {
+        rotateBG(e, container);
+    }
+    if (window.DeviceMotionEvent) {
+        window.addEventListener("deviceorientation", motion, true);
+    } else {
+        console.log("DeviceMotionEvent is not supported");
+    }
 });
 
-if (window.DeviceMotionEvent) {
-    window.addEventListener("devicemotion", motion, false);
-} else {
-    console.log("DeviceMotionEvent is not supported");
-}
 
-function motion(event) {
-    console.log("Accelerometer: "
-        + event.accelerationIncludingGravity.x + ", "
-        + event.accelerationIncludingGravity.y + ", "
-        + event.accelerationIncludingGravity.z
-    );
-    rotateBG(e, containters);
-}
+
+
 
 document.addEventListener("scroll", (event) => {
     {
