@@ -73,8 +73,10 @@ function rotateBG(event, element) {
         const middleY = window.innerHeight / 2;
         let offsetX = ((x - middleX) / middleX) * 1.5;
         let offsetY = ((y - middleY) / middleY) * 1.5;
+        let offsetZ = offsetX / offsetY;
         element.style.setProperty("--rotateX", offsetY + "deg");
         element.style.setProperty("--rotateY", -offsetX + "deg");
+        element.style.setProperty("--rotateZ", offsetZ + "deg");
     }
 
     if (event.type == "touchmove") {
@@ -86,9 +88,11 @@ function rotateBG(event, element) {
     if (event.type == "deviceorientation") {
         x = event.beta / 180 * 1.5;
         y = event.gamma / 180 * 1.5;
-
+        z = (event.alpha - 180) / 180 * 1.5;
+        console.log(z);
         element.style.setProperty("--rotateX", y + "deg");
         element.style.setProperty("--rotateY", -x + "deg");
+        element.style.setProperty("--rotateZ", z + "deg");
     }
 
     //console.log(x, y);
