@@ -149,10 +149,10 @@ containters.forEach(container => {
 
             const middleX = window.innerWidth / 2;
             const middleY = window.innerHeight / 2;
-            let offsetX = ((x - middleX) / middleX) * 1.5;
-            let offsetY = ((y - middleY) / middleY) * 1.5;
+            let offsetX = ((x - middleX) / middleX) * 3;
+            let offsetY = ((y - middleY) / middleY) * 3;
 
-            let offsetZ = offsetX + offsetY;
+            let offsetZ = offsetX * offsetY / 9;
 
 
             rotateBG(container, offsetX, offsetY, offsetZ);
@@ -180,21 +180,27 @@ containters.forEach(container => {
     let startZ = 0;
 
     function startOrient(e) {
-        window.removeEventListener("deviceorientation", startOrient);
         if (startX == 0) startX = e.gamma + 180;
         if (startY == 0) startY = e.beta + 180;
-        if (startZ == 0) startZ = e.alpha;
+        console.log("startOrient")
     }
 
+    let shouldWaitMotion = false;
     function motion(e) {
-        x = Math.min(Math.max((e.gamma + 180 - startX), -90), 90) / 30;
+        if (!shouldWaitMotion) {
+            shouldWaitMotion = true;
+            x = Math.min(Math.max((e.gamma + 180 - startX), -90), 90) / 30;
 
-        y = Math.min(Math.max((e.beta + 180 - startY), -90), 90) / 30;
-        z = Math.min(Math.max((e.alpha - startZ), -90), 90) / 30;
-        rotateBG(container, x, -y, z);
+            y = Math.min(Math.max((e.beta + 180 - startY), -90), 90) / 30;
+            z = x * y / 9;
+            rotateBG(container, -x, y, z);
+
+            shouldWaitMotion = false;
+        }
+
     }
     if (window.DeviceMotionEvent) {
-        window.addEventListener("deviceorientation", startOrient, true)
+        window.addEventListener("deviceorientation", startOrient, { once: true })
         window.addEventListener("deviceorientation", motion, true);
     } else {
         console.log("DeviceMotionEvent is not supported");
