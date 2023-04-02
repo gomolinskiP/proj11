@@ -51,7 +51,7 @@ function linkKlik() {
 
 const draggables = document.querySelectorAll('.draggable');
 
-const containters = document.querySelectorAll('.bg');
+const containters = document.querySelectorAll('body');
 
 
 draggables.forEach(draggable => {
@@ -64,41 +64,22 @@ draggables.forEach(draggable => {
     });
 });
 
-function rotateBG(event, element) {
-    if (event.type == "mousemove" || event.type == "dragover") {
-        x = event.clientX;
-        y = event.clientY;
+function rotateBG(element, rotX, rotY, rotZ) {
 
-        const middleX = window.innerWidth / 2;
-        const middleY = window.innerHeight / 2;
-        let offsetX = ((x - middleX) / middleX) * 1.5;
-        let offsetY = ((y - middleY) / middleY) * 1.5;
-        let offsetZ = offsetX / offsetY;
-        element.style.setProperty("--rotateX", offsetY + "deg");
-        element.style.setProperty("--rotateY", -offsetX + "deg");
-        element.style.setProperty("--rotateZ", offsetZ + "deg");
-    }
+    // if (event.type == "touchmove") {
+    //     x = event.touches[0].clientX;
+    //     y = event.touches[0].clientY;
 
-    if (event.type == "touchmove") {
-        x = event.touches[0].clientX;
-        y = event.touches[0].clientY;
+    // }
 
-    }
 
-    if (event.type == "deviceorientation") {
-        x = event.beta / 180 * 1.5;
-        y = event.gamma / 180 * 1.5;
-        z = (event.alpha - 180) / 180 * 1.5;
-        console.log(z);
-        element.style.setProperty("--rotateX", y + "deg");
-        element.style.setProperty("--rotateY", -x + "deg");
-        element.style.setProperty("--rotateZ", z + "deg");
-    }
 
     //console.log(x, y);
 
 
-
+    element.style.setProperty("--rotateX", rotY + "deg");
+    element.style.setProperty("--rotateY", -rotX + "deg");
+    element.style.setProperty("--rotateZ", rotZ + "deg");
 
 
     //console.log(offsetX, offsetY);
@@ -132,12 +113,22 @@ containters.forEach(container => {
                 const moveX = currentX + e.clientX - evStart.clientX;
                 const moveY = currentY + e.clientY - evStart.clientY;
 
+                x = e.clientX;
+                y = e.clientY;
+
+                const middleX = window.innerWidth / 2;
+                const middleY = window.innerHeight / 2;
+                let offsetX = ((x - middleX) / middleX) * 1.5;
+                let offsetY = ((y - middleY) / middleY) * 1.5;
+                let offsetZ = offsetX + offsetY;
 
 
                 dragging.style.setProperty("left", moveX + "px");
                 dragging.style.setProperty("top", moveY + "px");
+
                 console.log(currentX, moveY)
-                rotateBG(e, container)
+
+                rotateBG(container, offsetX, offsetY, offsetZ)
                 setTimeout(() => { shouldWait = false; }, "0")
 
 
@@ -152,7 +143,19 @@ containters.forEach(container => {
     container.addEventListener('mousemove', e => {
         if (!shouldWaitMouse) {
             shouldWaitMouse = true;
-            rotateBG(e, container);
+
+            x = e.clientX;
+            y = e.clientY;
+
+            const middleX = window.innerWidth / 2;
+            const middleY = window.innerHeight / 2;
+            let offsetX = ((x - middleX) / middleX) * 1.5;
+            let offsetY = ((y - middleY) / middleY) * 1.5;
+
+            let offsetZ = offsetX + offsetY;
+
+
+            rotateBG(container, offsetX, offsetY, offsetZ);
             setTimeout(() => {
                 shouldWaitMouse = false;
             }, "10")
@@ -172,10 +175,26 @@ containters.forEach(container => {
         }
     })
 
+    let startX = 0;
+    let startY = 0;
+    let startZ = 0;
+
+    function startOrient(e) {
+        window.removeEventListener("deviceorientation", startOrient);
+        if (startX == 0) startX = e.gamma + 180;
+        if (startY == 0) startY = e.beta + 180;
+        if (startZ == 0) startZ = e.alpha;
+    }
+
     function motion(e) {
-        rotateBG(e, container);
+        x = Math.min(Math.max((e.gamma + 180 - startX), -90), 90) / 30;
+
+        y = Math.min(Math.max((e.beta + 180 - startY), -90), 90) / 30;
+        z = Math.min(Math.max((e.alpha - startZ), -90), 90) / 30;
+        rotateBG(container, x, -y, z);
     }
     if (window.DeviceMotionEvent) {
+        window.addEventListener("deviceorientation", startOrient, true)
         window.addEventListener("deviceorientation", motion, true);
     } else {
         console.log("DeviceMotionEvent is not supported");
