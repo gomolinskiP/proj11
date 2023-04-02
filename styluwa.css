@@ -38,8 +38,12 @@ a {
 }
 
 a:hover {
+    color: lightgoldenrodyellow;
+    border-color: lightgoldenrodyellow;
     background-color: #000a;
     filter: saturate(2);
+    text-shadow: black 1px 1px;
+    letter-spacing: 1.1rem;
     scale: 1.1 1.7;
     opacity: 1;
     box-shadow: 0px 0px 50px 0px red;
@@ -48,9 +52,14 @@ a:hover {
 
 .bigLink {
     font-size: 20rem;
-    transition: 0.9s ease-in-out;
+    transition: 0.3s ease-in-out;
 }
 
+.bigLink:hover {
+    transition: 1.1s ease-in-out;
+    letter-spacing: -2.6rem;
+    padding: 1vmin;
+}
 
 @keyframes skala {
     0% {

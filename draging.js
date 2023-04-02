@@ -1,22 +1,27 @@
 console.log("DRAGING JS");
 
 let kolor;
-const kolorDefault = "#0000ff";
+const kolorDefault = '#' + (0x1000000 + Math.random() * 0xffffff).toString(16).substr(1, 6);
 window.addEventListener("load", startup, false);
 
 function startup() {
     kolor = document.querySelector("#kolor");
     kolor.value = kolorDefault;
+    setColor(kolorDefault);
     kolor.addEventListener("input", updateFirst, false);
     console.log("startup");
 }
 
-function updateFirst(event) {
+function setColor(color) {
     const textArea = document.querySelector("textarea");
     if (textArea) {
-        textArea.style.color = event.target.value;
-        textArea.style.borderColor = event.target.value;
+        textArea.style.color = color;
+        textArea.style.borderColor = color;
     }
+}
+
+function updateFirst(event) {
+    setColor(event.target.value);
 }
 
 function changeSmall() {
@@ -120,18 +125,17 @@ containters.forEach(container => {
                 const middleY = window.innerHeight / 2;
                 let offsetX = ((x - middleX) / middleX) * 1.5;
                 let offsetY = ((y - middleY) / middleY) * 1.5;
-                let offsetZ = offsetX + offsetY;
+                let offsetZ = offsetX * offsetY;
 
 
                 dragging.style.setProperty("left", moveX + "px");
                 dragging.style.setProperty("top", moveY + "px");
 
-                console.log(currentX, moveY)
 
-                rotateBG(container, offsetX, offsetY, offsetZ)
-                setTimeout(() => { shouldWait = false; }, "0")
+                rotateBG(container, offsetX, offsetY, offsetZ);
 
 
+                shouldWait = false;
             }
 
 
@@ -158,7 +162,7 @@ containters.forEach(container => {
             rotateBG(container, offsetX, offsetY, offsetZ);
             setTimeout(() => {
                 shouldWaitMouse = false;
-            }, "10")
+            }, "100")
 
         }
     })
@@ -195,7 +199,10 @@ containters.forEach(container => {
             z = x * y / 9;
             rotateBG(container, -x, y, z);
 
-            shouldWaitMotion = false;
+            setTimeout(() => {
+                shouldWaitMotion = false;
+            }, "40")
+
         }
 
     }
