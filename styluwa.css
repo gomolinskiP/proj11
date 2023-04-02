@@ -63,13 +63,11 @@ a:hover {
 
 @keyframes skala {
     0% {
-        transform: perspective(3000px) rotateX(11deg) rotateY(-22deg) translateZ(130px) translateY(40px);
-
+        transform: translateZ(60px) rotateX(-30deg) rotateY(30deg);
     }
 
     100% {
-        transform: perspective(3000px) rotateX(-11deg) rotateY(22deg) translateZ(130px) translateY(40px);
-
+        transform: translateZ(70px) rotateX(30deg) rotateY(-30deg);
     }
 }
 
@@ -92,8 +90,8 @@ a:hover {
     border: 0px black solid;
 
     transform-style: preserve-3d;
-
-    transform: perspective(30000px) rotateX(var(--rotateX)) rotateY(var(--rotateY)) translateZ(130px) rotateZ(var(--rotateZ, 0deg)) scaleY(0.8) scaleZ(3) translateY(10vh);
+    transform-origin: center;
+    transform: perspective(3000px) rotateX(var(--rotateX)) rotateY(var(--rotateY)) translateZ(130px) rotateZ(var(--rotateZ, 0deg)) scaleY(0.8) scaleZ(0.5) translateY(10vh);
 
 }
 
@@ -131,7 +129,7 @@ a:hover {
 .element {
     transform: translateZ(60px) rotateX(3deg);
     border: #000a 1px solid;
-    transition: ease-out 0.8s;
+    transition: ease-out 0.4s;
     height: fit-content;
     width: fit-content;
     white-space: nowrap;
@@ -145,6 +143,8 @@ a:hover {
     padding: 0.3vh 0.1vw;
 
     position: relative;
+
+
 }
 
 
@@ -154,6 +154,8 @@ a:hover {
 
 .element:hover,
 .element:focus {
+    transition: ease-out 0.8s;
+
     transform: translateZ(160px) scaleX(1.44) rotateX(-30deg);
     border-width: 4px;
     filter: saturate(1.33) blur(0);

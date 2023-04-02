@@ -123,9 +123,9 @@ containters.forEach(container => {
 
                 const middleX = window.innerWidth / 2;
                 const middleY = window.innerHeight / 2;
-                let offsetX = ((x - middleX) / middleX) * 1.5;
-                let offsetY = ((y - middleY) / middleY) * 1.5;
-                let offsetZ = offsetX * offsetY;
+                let offsetX = ((x - middleX) / middleX) * 9;
+                let offsetY = ((y - middleY) / middleY) * 2;
+                let offsetZ = offsetX * offsetY / 9;
 
 
                 dragging.style.setProperty("left", moveX + "px");
@@ -153,8 +153,8 @@ containters.forEach(container => {
 
             const middleX = window.innerWidth / 2;
             const middleY = window.innerHeight / 2;
-            let offsetX = ((x - middleX) / middleX) * 3;
-            let offsetY = ((y - middleY) / middleY) * 3;
+            let offsetX = ((x - middleX) / middleX) * 9;
+            let offsetY = ((y - middleY) / middleY) * 2;
 
             let offsetZ = offsetX * offsetY / 9;
 
@@ -193,9 +193,9 @@ containters.forEach(container => {
     function motion(e) {
         if (!shouldWaitMotion) {
             shouldWaitMotion = true;
-            x = Math.min(Math.max((e.gamma + 180 - startX), -90), 90) / 30;
+            x = Math.min(Math.max((e.gamma + 180 - startX), -90), 90) / 10;
 
-            y = Math.min(Math.max((e.beta + 180 - startY), -90), 90) / 30;
+            y = Math.min(Math.max((e.beta + 180 - startY), -90), 90) / 10;
             z = x * y / 9;
             rotateBG(container, -x, y, z);
 
