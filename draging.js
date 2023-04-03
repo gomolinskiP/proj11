@@ -193,10 +193,10 @@ containters.forEach(container => {
     function motion(e) {
         if (!shouldWaitMotion) {
             shouldWaitMotion = true;
-            x = Math.min(Math.max((e.gamma + 180 - startX), -90), 90) / 10;
+            x = Math.min(Math.max((e.gamma + 180 - startX), -90), 90) / 5;
 
-            y = Math.min(Math.max((e.beta + 180 - startY), -90), 90) / 10;
-            z = x * y / 9;
+            y = Math.min(Math.max((e.beta + 180 - startY), -90), 90) / 5;
+            z = x * y / 25;
             rotateBG(container, x, y, z);
 
             setTimeout(() => {
