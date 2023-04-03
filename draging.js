@@ -197,7 +197,7 @@ containters.forEach(container => {
 
             y = Math.min(Math.max((e.beta + 180 - startY), -90), 90) / 10;
             z = x * y / 9;
-            rotateBG(container, -x, y, z);
+            rotateBG(container, x, y, z);
 
             setTimeout(() => {
                 shouldWaitMotion = false;
@@ -206,7 +206,7 @@ containters.forEach(container => {
         }
 
     }
-    if (window.DeviceMotionEvent) {
+    if (window.DeviceOrientationEvent) {
         window.addEventListener("deviceorientation", startOrient, { once: true })
         window.addEventListener("deviceorientation", motion, true);
     } else {
