@@ -153,16 +153,16 @@ containters.forEach(container => {
 
             const middleX = window.innerWidth / 2;
             const middleY = window.innerHeight / 2;
-            let offsetX = ((x - middleX) / middleX) * 9;
-            let offsetY = ((y - middleY) / middleY) * 2;
+            let offsetX = ((x - middleX) / middleX) * 30;
+            let offsetY = ((y - middleY) / middleY) * 30;
 
-            let offsetZ = offsetX * offsetY / 9;
+            let offsetZ = -(offsetX * offsetY / 600);
 
 
             rotateBG(container, offsetX, offsetY, offsetZ);
             setTimeout(() => {
                 shouldWaitMouse = false;
-            }, "100")
+            }, "40")
 
         }
     })
@@ -193,10 +193,10 @@ containters.forEach(container => {
     function motion(e) {
         if (!shouldWaitMotion) {
             shouldWaitMotion = true;
-            x = Math.min(Math.max((e.gamma + 180 - startX), -90), 90) / 5;
+            x = Math.min(Math.max((e.gamma + 180 - startX), -90), 90) / 2;
 
-            y = Math.min(Math.max((e.beta + 180 - startY), -90), 90) / 5;
-            z = x * y / 25;
+            y = Math.min(Math.max((e.beta + 180 - startY), -90), 90) / 2;
+            z = -(x * y / 200);
             rotateBG(container, x, y, z);
 
             setTimeout(() => {
