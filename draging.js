@@ -26,9 +26,14 @@ function updateFirst(event) {
 
 function changeSmall() {
     link = document.getElementsByClassName("bigLink");
+    // window.scrollTo(0, 0);
+
 
     link[0].href = "#home";
     link[0].style.setProperty("font-size", "8rem");
+    // setTimeout(() => {
+    //     window.scrollTo(0, 0);
+    // }, "50")
 }
 
 function changeBig() {
@@ -40,10 +45,8 @@ function changeBig() {
 
 
 function linkKlik() {
-    console.log("klik link");
     link = document.getElementsByClassName("bigLink");
 
-    console.log(link[0].href);
 
     let currentLink = link[0].href;
     if (currentLink.search("home") == -1) {
@@ -56,7 +59,7 @@ function linkKlik() {
 
 const draggables = document.querySelectorAll('.draggable');
 
-const containters = document.querySelectorAll('body');
+const containters = document.querySelectorAll('.bg');
 
 
 draggables.forEach(draggable => {
@@ -96,11 +99,15 @@ function rotateBG(element, rotX, rotY, rotZ) {
 
 containters.forEach(container => {
     container.addEventListener('dragstart', evStart => {
+        rotateBG(container, 0, 0, 0);
 
         let dragging = document.querySelector('.dragging');
 
         const currentXpx = window.getComputedStyle(dragging).getPropertyValue("left");
         const currentYpx = window.getComputedStyle(dragging).getPropertyValue("top");
+
+        const startX = evStart.clientX;
+        const startY = evStart.clientY;
 
 
 
@@ -115,27 +122,18 @@ containters.forEach(container => {
                 shouldWait = true
                 dragging = document.querySelector('.dragging');
 
-                const moveX = currentX + e.clientX - evStart.clientX;
-                const moveY = currentY + e.clientY - evStart.clientY;
-
-                x = e.clientX;
-                y = e.clientY;
-
-                const middleX = window.innerWidth / 2;
-                const middleY = window.innerHeight / 2;
-                let offsetX = ((x - middleX) / middleX) * 9;
-                let offsetY = ((y - middleY) / middleY) * 2;
-                let offsetZ = offsetX * offsetY / 9;
-
+                const moveX = currentX + e.clientX - startX;
+                const moveY = currentY + e.clientY - startY;
 
                 dragging.style.setProperty("left", moveX + "px");
                 dragging.style.setProperty("top", moveY + "px");
 
 
-                rotateBG(container, offsetX, offsetY, offsetZ);
 
 
-                shouldWait = false;
+                setTimeout(() => {
+                    shouldWait = false;
+                }, "100")
             }
 
 
@@ -158,7 +156,7 @@ containters.forEach(container => {
 
             let offsetZ = -(offsetX * offsetY / 600);
 
-
+            // window.scrollTo(0, 0);
             rotateBG(container, offsetX, offsetY, offsetZ);
             setTimeout(() => {
                 shouldWaitMouse = false;
@@ -186,7 +184,6 @@ containters.forEach(container => {
     function startOrient(e) {
         if (startX == 0) startX = e.gamma + 180;
         if (startY == 0) startY = e.beta + 180;
-        console.log("startOrient")
     }
 
     let shouldWaitMotion = false;
