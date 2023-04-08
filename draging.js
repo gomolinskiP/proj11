@@ -59,7 +59,8 @@ function linkKlik() {
 
 const draggables = document.querySelectorAll('.draggable');
 
-const containters = document.querySelectorAll('.bg');
+const backGround = document.querySelector('.bg');
+
 
 
 draggables.forEach(draggable => {
@@ -97,128 +98,122 @@ function rotateBG(element, rotX, rotY, rotZ) {
 
 
 
-containters.forEach(container => {
-    container.addEventListener('dragstart', evStart => {
-        rotateBG(container, 0, 0, 0);
+// containters.forEach(container => {
+//     container.addEventListener('dragstart', evStart => {
+//         rotateBG(container, 0, 0, 0);
 
-        let dragging = document.querySelector('.dragging');
+//         let dragging = document.querySelector('.dragging');
 
-        const currentXpx = window.getComputedStyle(dragging).getPropertyValue("left");
-        const currentYpx = window.getComputedStyle(dragging).getPropertyValue("top");
+//         const currentXpx = window.getComputedStyle(dragging).getPropertyValue("left");
+//         const currentYpx = window.getComputedStyle(dragging).getPropertyValue("top");
 
-        const startX = evStart.clientX;
-        const startY = evStart.clientY;
-
-
-
-        currentX = Number(currentXpx.slice(0, -2));
-        currentY = Number(currentYpx.slice(0, -2));
-
-        let shouldWait = false;
-
-        container.addEventListener('dragover', e => {
-            e.preventDefault();
-            if (!shouldWait) {
-                shouldWait = true
-                dragging = document.querySelector('.dragging');
-
-                const moveX = currentX + e.clientX - startX;
-                const moveY = currentY + e.clientY - startY;
-
-                dragging.style.setProperty("left", moveX + "px");
-                dragging.style.setProperty("top", moveY + "px");
+//         const startX = evStart.clientX;
+//         const startY = evStart.clientY;
 
 
 
+//         currentX = Number(currentXpx.slice(0, -2));
+//         currentY = Number(currentYpx.slice(0, -2));
 
-                setTimeout(() => {
-                    shouldWait = false;
-                }, "100")
-            }
+//         let shouldWait = false;
+
+//         container.addEventListener('dragover', e => {
+//             e.preventDefault();
+//             if (!shouldWait) {
+//                 shouldWait = true
+//                 dragging = document.querySelector('.dragging');
+
+//                 const moveX = currentX + e.clientX - startX;
+//                 const moveY = currentY + e.clientY - startY;
+
+//                 dragging.style.setProperty("left", moveX + "px");
+//                 dragging.style.setProperty("top", moveY + "px");
 
 
-        })
-    });
 
 
-    let shouldWaitMouse = false;
-    container.addEventListener('mousemove', e => {
-        if (!shouldWaitMouse) {
-            shouldWaitMouse = true;
+//                 setTimeout(() => {
+//                     shouldWait = false;
+//                 }, "100")
+//             }
 
-            x = e.clientX;
-            y = e.clientY;
 
-            const middleX = window.innerWidth / 2;
-            const middleY = window.innerHeight / 2;
-            let offsetX = ((x - middleX) / middleX) * 30;
-            let offsetY = ((y - middleY) / middleY) * 30;
+//         })
+//     });
 
-            let offsetZ = -(offsetX * offsetY / 600);
 
-            // window.scrollTo(0, 0);
-            rotateBG(container, offsetX, offsetY, offsetZ);
-            setTimeout(() => {
-                shouldWaitMouse = false;
-            }, "40")
 
-        }
-    })
+function mouseMove(e) {
+    window.removeEventListener('mousemove', mouseMove)
 
-    let shouldWaitTouch = false;
-    container.addEventListener('touchmove', e => {
-        if (!shouldWaitTouch) {
-            shouldWaitTouch = true;
-            rotateBG(e, container);
-            setTimeout(() => {
-                shouldWaitTouch = false;
-            }, "10")
+    const middleX = window.innerWidth / 2;
+    const middleY = window.innerHeight / 2;
 
-        }
-    })
+    x = e.clientX;
+    y = e.clientY;
 
-    let startX = 0;
-    let startY = 0;
-    let startZ = 0;
+    let offsetX = ((x - middleX) / middleX) * 30;
+    let offsetY = ((y - middleY) / middleY) * 30;
+    let offsetZ = -(offsetX * offsetY / 600);
+    rotateBG(backGround, offsetX, offsetY, offsetZ);
+    window.scrollTo(0, 0);
 
-    function startOrient(e) {
-        if (startX == 0) startX = e.gamma + 180;
-        if (startY == 0) startY = e.beta + 180;
-    }
+    window.addEventListener('mousemove', mouseMove);
+}
 
-    let shouldWaitMotion = false;
-    function motion(e) {
-        if (!shouldWaitMotion) {
-            shouldWaitMotion = true;
-            x = Math.min(Math.max((e.gamma + 180 - startX), -90), 90) / 2;
+window.addEventListener('mousemove', mouseMove);
 
-            y = Math.min(Math.max((e.beta + 180 - startY), -90), 90) / 2;
-            z = -(x * y / 200);
-            rotateBG(container, x, y, z);
+// let shouldWaitTouch = false;
+// container.addEventListener('touchmove', e => {
+//     if (!shouldWaitTouch) {
+//         shouldWaitTouch = true;
+//         rotateBG(e, container);
+//         setTimeout(() => {
+//             shouldWaitTouch = false;
+//         }, "10")
 
-            setTimeout(() => {
-                shouldWaitMotion = false;
-            }, "40")
+//     }
+// })
 
-        }
+let startX = 0;
+let startY = 0;
+let startZ = 0;
 
-    }
-    if (window.DeviceOrientationEvent) {
-        window.addEventListener("deviceorientation", startOrient, { once: true })
-        window.addEventListener("deviceorientation", motion, true);
-    } else {
-        console.log("DeviceMotionEvent is not supported");
-    }
-});
+function startOrient(e) {
+    if (startX == 0) startX = e.gamma + 180;
+    if (startY == 0) startY = e.beta + 180;
+}
+
+let shouldWaitMotion = false;
+function motion(e) {
+    window.removeEventListener("deviceorientation", motion);
+    x = Math.min(Math.max((e.gamma + 180 - startX), -90), 90) / 2;
+
+    y = Math.min(Math.max((e.beta + 180 - startY), -90), 90) / 2;
+    z = -(x * y / 200);
+    rotateBG(backGround, x, y, z);
+
+
+    window.addEventListener("deviceorientation", motion, true);
+
+}
+
+
+if (window.DeviceOrientationEvent) {
+    window.addEventListener("deviceorientation", startOrient, { once: true })
+    window.addEventListener("deviceorientation", motion, true);
+} else {
+    console.log("DeviceMotionEvent is not supported");
+}
 
 
 
 
 
-document.addEventListener("scroll", (event) => {
-    {
-        lastKnownScrollPosition = window.scrollY;
+// document.addEventListener("scroll", (event) => {
+//     {
+//         lastKnownScrollPosition = window.scrollY;
 
-        // console.log(lastKnownScrollPosition)
-    }
-});
+//         // console.log(lastKnownScrollPosition)
+//     }
+// });
