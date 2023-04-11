@@ -157,8 +157,9 @@ function mouseMove(e) {
     let offsetZ = -(offsetX * offsetY / 600);
     rotateBG(backGround, offsetX, offsetY, offsetZ);
     window.scrollTo(0, 0);
-
+    // setTimeout(() => {
     window.addEventListener('mousemove', mouseMove);
+    // }, "50")
 }
 
 window.addEventListener('mousemove', mouseMove);
