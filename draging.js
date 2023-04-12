@@ -194,6 +194,8 @@ function motion(e) {
     z = -(x * y / 200);
     rotateBG(backGround, x, y, z);
 
+    window.scrollTo(0, 0);
+
     setTimeout(() => {
         window.addEventListener("deviceorientation", motion, true);
     }, "40")

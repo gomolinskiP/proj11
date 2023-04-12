@@ -1,3 +1,8 @@
+:root {
+    touch-action: pan-x pan-y;
+    height: 100%;
+}
+
 html {
     font-size: 0.5vmin;
     scroll-behavior: smooth;
@@ -37,12 +42,10 @@ a {
 a:hover {
 
     filter: hue-rotate(90deg);
-    text-shadow: black 1px 1px;
-    padding: 10vh 5vw;
     font-size: 14rem;
-
     opacity: 1;
-    box-shadow: 0px 0px 20px 10px gold;
+    box-shadow: inset 0px 0px 20px 0px gold;
+
     text-decoration-style: wavy;
 }
 
@@ -56,16 +59,17 @@ a:hover {
 
 .bigLink::after {
     content: "◟ᴥ◞";
-    text-shadow: 0px 0px 1px black;
+    text-shadow: 0px -6px 0px white;
     color: black;
     position: fixed;
     right: 0%;
-    top: 15%;
+    top: 10%;
     width: 100%;
+    height: 100%;
     text-align: center;
     scale: 0.4 0.3;
     transform-origin: center;
-    margin: 0;
+    margin: auto;
     padding: 0;
     letter-spacing: normal;
 
@@ -92,8 +96,8 @@ a:hover {
 .bg {
     position: relative;
     width: 90vw;
-    height: 80vh;
-    margin: auto auto;
+    height: 100vh;
+    margin: auto 10vh;
     display: flex;
     flex-direction: column;
     flex-flow: wrap;
@@ -106,7 +110,7 @@ a:hover {
 
     transform-style: preserve-3d;
     transform-origin: center;
-    transform: perspective(100000px) rotateX(var(--rotateX)) rotateY(var(--rotateY)) translateZ(50px) rotateZ(var(--rotateZ, 0deg)) scaleY(0.8) translateY(10vh);
+    transform: perspective(100000px) rotateX(var(--rotateX)) rotateY(var(--rotateY)) translateZ(50px) rotateZ(var(--rotateZ, 0deg)) scaleY(0.8) translateY(0vh);
 
 
 }
@@ -493,6 +497,7 @@ textarea:hover {
     font-weight: 900;
 
     border-width: 2px;
+    z-index: 9999;
 }
 
 #orientPermission {
