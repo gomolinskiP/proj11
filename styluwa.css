@@ -370,7 +370,10 @@ hr:hover {
 
 body {
     font-family: Arial Rounded MT;
-
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
     animation-name: hue;
     animation-duration: 17s;
     animation-direction: alternate;
@@ -465,4 +468,39 @@ textarea:hover {
     scale: 2.4 2.3;
     transform: translateZ(900px);
     filter: blur(0px) saturate(1.1) contrast(1.2) hue-rotate(0deg);
+}
+
+.btn {
+    font-family: Arial Rounded MT;
+
+    position: absolute;
+    border-radius: 0px;
+    border: 1px black solid;
+    width: 10vmin;
+    height: 10vmin;
+    font-size: 15rem;
+    vertical-align: middle;
+    font-weight: 100;
+    background-color: darkgrey;
+    box-shadow: inset 0px 0px 0.5vmin black;
+    color: #444;
+}
+
+.btn:hover {
+    background-color: lightgray;
+    color: #222;
+    box-shadow: none;
+    font-weight: 900;
+
+    border-width: 2px;
+}
+
+#orientPermission {
+    top: 10px;
+    left: 10px;
+}
+
+#invert {
+    bottom: 10px;
+    right: 10px;
 }

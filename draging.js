@@ -200,6 +200,15 @@ function motion(e) {
 
 }
 
+function requestOrientationPermission() {
+    DeviceOrientationEvent.requestPermission()
+        .then(response => {
+            if (response == 'granted') {
+                window.addEventListener('deviceorientation', motion, true)
+            }
+        })
+        .catch(console.error)
+}
 
 if (window.DeviceOrientationEvent) {
     window.addEventListener("deviceorientation", startOrient, { once: true })
@@ -208,9 +217,18 @@ if (window.DeviceOrientationEvent) {
     console.log("DeviceMotionEvent is not supported");
 }
 
+const htmlElement = document.querySelector('html')
 
+function invert() {
+    var currentFilter = getComputedStyle(htmlElement).getPropertyValue('filter')
 
-
+    if (currentFilter == 'invert(1)') {
+        htmlElement.style.setProperty('filter', 'invert(0)')
+    }
+    else {
+        htmlElement.style.setProperty('filter', 'invert(1)')
+    }
+}
 
 // document.addEventListener("scroll", (event) => {
 //     {
