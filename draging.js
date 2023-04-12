@@ -159,7 +159,7 @@ function mouseMove(e) {
     window.scrollTo(0, 0);
     // setTimeout(() => {
     window.addEventListener('mousemove', mouseMove);
-    // }, "50")
+    // }, "30")
 }
 
 window.addEventListener('mousemove', mouseMove);
@@ -194,8 +194,9 @@ function motion(e) {
     z = -(x * y / 200);
     rotateBG(backGround, x, y, z);
 
-
-    window.addEventListener("deviceorientation", motion, true);
+    setTimeout(() => {
+        window.addEventListener("deviceorientation", motion, true);
+    }, "40")
 
 }
 
