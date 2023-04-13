@@ -162,7 +162,9 @@ function mouseMove(e) {
     // }, "30")
 }
 
-window.addEventListener('mousemove', mouseMove);
+if (window.matchMedia("(pointer: fine)").matches) {
+    window.addEventListener('mousemove', mouseMove);
+}
 
 // let shouldWaitTouch = false;
 // container.addEventListener('touchmove', e => {
