@@ -42,7 +42,7 @@ a {
 a:hover {
 
     filter: hue-rotate(90deg);
-    font-size: 14rem;
+    font-size: 9rem;
     opacity: 1;
     box-shadow: inset 0px 0px 20px 0px gold;
 
@@ -234,13 +234,12 @@ a:hover {
 
 .element:hover,
 .element:focus {
-    transition: ease-out 8.8s;
+    transition: ease-out 0.8s;
 
-    transform: translateZ(500px) scaleX(1.44) rotateX(-30deg);
+    transform: translateZ(60px) scaleX(1.44) rotateX(-3deg);
     border-width: 4px;
     filter: saturate(1.33) blur(0);
     opacity: 1;
-    scale: 1.8;
     padding: 3vh 0.5vw;
 }
 
@@ -508,4 +507,19 @@ textarea:hover {
 #invert {
     bottom: 10px;
     right: 10px;
+}
+
+iframe {
+    width: 1920px;
+    height: 1080px;
+    transform-origin: 0 0;
+    scale: 0.25;
+    pointer-events: none;
+}
+
+#iframeWrap {
+    width: 480px;
+    height: 270px;
+    overflow: hidden;
+
 }
