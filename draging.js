@@ -224,11 +224,11 @@ const htmlElement = document.querySelector('html')
 function invert() {
     var currentFilter = getComputedStyle(htmlElement).getPropertyValue('filter')
 
-    if (currentFilter == 'invert(1)') {
-        htmlElement.style.setProperty('filter', 'invert(0)')
+    if (currentFilter == 'invert(1) hue-rotate(180deg)') {
+        htmlElement.style.setProperty('filter', 'invert(0) hue-rotate(0deg)')
     }
     else {
-        htmlElement.style.setProperty('filter', 'invert(1)')
+        htmlElement.style.setProperty('filter', 'invert(1) hue-rotate(180deg)')
     }
 }
 
