@@ -543,11 +543,11 @@ textarea:hover {
     position: absolute;
     border-radius: 10px;
     border: none;
-    width: 10vmin;
-    height: 10vmin;
-    font-size: 15rem;
+    width: 5vmin;
+    height: 5vmin;
+    font-size: 5rem;
     vertical-align: middle;
-    font-weight: 100;
+    font-weight: bold;
     background-color: darkgrey;
     box-shadow: inset 0px 0px 1.5vmin black;
     color: #444;
@@ -557,20 +557,19 @@ textarea:hover {
 .btn:hover {
     background-color: lightgray;
     color: #222;
-    font-weight: 900;
 
     border-width: 2px;
     z-index: 9999;
 }
 
 #orientPermission {
-    top: 10px;
-    left: 10px;
+    top: 1vh;
+    left: 1vw;
 }
 
 #invert {
-    bottom: 10px;
-    right: 10px;
+    bottom: 1vh;
+    right: 1vw;
 }
 
 iframe {
