@@ -4,6 +4,7 @@ let kolor;
 const kolorDefault = '#' + (0x1000000 + Math.random() * 0xffffff).toString(16).substr(1, 6);
 window.addEventListener("load", startup, false);
 
+
 function startup() {
     kolor = document.querySelector("#kolor");
     kolor.value = kolorDefault;
@@ -86,9 +87,11 @@ function rotateBG(element, rotX, rotY, rotZ) {
     //console.log(x, y);
 
 
-    element.style.setProperty("--rotateX", rotY + "deg");
-    element.style.setProperty("--rotateY", -rotX + "deg");
-    element.style.setProperty("--rotateZ", rotZ + "deg");
+    element.style.setProperty("--rotateX", (rotY).toFixed(1) + "deg");
+    element.style.setProperty("--rotateY", (-rotX).toFixed(1) + "deg");
+    element.style.setProperty("--rotateZ", (rotZ).toFixed(1) + "deg");
+
+    // console.log((rotY).toFixed(2))
 
 
     //console.log(offsetX, offsetY);
@@ -220,6 +223,7 @@ if (window.DeviceOrientationEvent) {
 }
 
 const htmlElement = document.querySelector('html')
+invert();
 
 function invert() {
     var currentFilter = getComputedStyle(htmlElement).getPropertyValue('filter')

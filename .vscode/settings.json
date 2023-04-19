@@ -1,6 +1,6 @@
 {
     "window.autoDetectColorScheme": true,
     "workbench.preferredLightColorTheme": "Default Light+",
-    "workbench.colorTheme": "Default Light+",
+    "workbench.colorTheme": "Monokai",
     "workbench.preferredDarkColorTheme": "Monokai"
 }

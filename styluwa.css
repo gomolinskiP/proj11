@@ -3,6 +3,41 @@
     height: 100%;
 } */
 
+@font-face {
+    font-family: 'ArialRound';
+    src: url('fonts/RoundedMplus1c-Thin.eot');
+    src: url('fonts/RoundedMplus1c-Thin.eot?#iefix') format('embedded-opentype'),
+        url('fonts/RoundedMplus1c-Thin.woff2') format('woff2'),
+        url('fonts/RoundedMplus1c-Thin.woff') format('woff'),
+        url('fonts/RoundedMplus1c-Thin.ttf') format('truetype'),
+        url('fonts/RoundedMplus1c-Thin.svg#RoundedMplus1c-Thin') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ArialRound';
+    src: url('fonts/RoundedMplus1c-ExtraBold.eot');
+    src: url('fonts/RoundedMplus1c-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/RoundedMplus1c-ExtraBold.woff2') format('woff2'),
+        url('fonts/RoundedMplus1c-ExtraBold.woff') format('woff'),
+        url('fonts/RoundedMplus1c-ExtraBold.ttf') format('truetype'),
+        url('fonts/RoundedMplus1c-ExtraBold.svg#RoundedMplus1c-ExtraBold') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+::selection {
+    background: #888; /* WebKit/Blink Browsers */
+  }
+  ::-moz-selection {
+    background: 888; /* Gecko Browsers */
+  }
+
+
 html {
     font-size: 0.5vmin;
     scroll-behavior: smooth;
@@ -12,7 +47,7 @@ html {
 
 @keyframes kolor {
     from {
-        text-shadow: 0px 0px 3px red;
+        text-shadow: 0px 0px 6 px red;
         rotate: -1deg;
     }
 
@@ -41,19 +76,19 @@ a {
     white-space: break-spaces;
     max-width: 25vw;
 
-    transition: 0.9s 0.2s ease-in-out;
+    transition: 1.9s 0.5s ease-in-out;
 }
 
-a:hover {
+.element:hover a {
 
-    transition: 0.7s ease-out;
+    transition: 0.3s ease-out;
 
     filter: hue-rotate(90deg);
     opacity: 1;
     box-shadow: inset 0px 0px 20px 0px gold;
     text-decoration-style: wavy;
-    font-size: 9rem;
-    max-width: 11vw;
+    font-size: 11rem;
+    max-width: 16vmin;
 
 
 }
@@ -66,17 +101,17 @@ a:hover {
 .bigLink {
     display: inline;
     font-size: 20rem;
-    transition: 0.3s ease-in-out;
+    transition: 3.3s ease-in-out;
 
 }
 
 .bigLink::after {
     content: "◟ᴥ◞";
-    text-shadow: 0px -3px 0px white;
-    color: black;
-    position: fixed;
+    text-shadow: 0px -3px 0px black;
+    color: white;
+    position: absolute;
     right: 0%;
-    top: 10%;
+    top: 0%;
     width: 100%;
     height: 100%;
     text-align: center;
@@ -88,12 +123,12 @@ a:hover {
 
 
 
+
 }
 
 .bigLink:hover {
     transition: 0.4s ease-out;
-    padding: 1vmin;
-    scale: 2.3;
+    
 }
 
 @keyframes skala {
@@ -135,7 +170,7 @@ a:hover {
     background-size: 100% 100%;
     image-rendering: optimizeSpeed;
     box-shadow: inset 0px 0px 30vh black;
-    filter: invert(1) blur(0.5vw) contrast(2);
+    filter: invert(1) blur(0.15vw) contrast(0.5);
 }
 
 #floor {
@@ -225,7 +260,7 @@ a:hover {
 .element {
     transform: translateZ(80px);
     border: #000a 1px solid;
-    transition: ease-out 0.7s 0.1s;
+    transition: ease-out 1.3s 0.4s;
     height: fit-content;
     width: fit-content;
     white-space: nowrap;
@@ -269,6 +304,7 @@ img {
 h1 {
     max-width: 40vw;
     white-space: break-spaces;
+    font-family: ArialRound;
 }
 
 .single {
@@ -388,7 +424,7 @@ hr:hover {
 
 
 body {
-    font-family: Arial Rounded MT;
+    font-family: ArialRound;
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -407,13 +443,15 @@ body {
 
 
 textarea{
-    text-shadow: 0px 0px 1px white;
-    font-family: monospace !important;
+    text-shadow: 0px 2px 0px white;
+    font-family: ArialRound !important;
     letter-spacing: 1rem;
+    font-weight: bold;
 }
 
 input{
-    text-shadow: 1px 1px 0px black;
+    text-shadow: 0px 2px 0px black;
+    font-weight: bold;
 }
 
 
@@ -423,7 +461,8 @@ input {
     max-width: 33vw;
     border-radius: 0px;
     border: 2px solid magenta;
-    font-family: Arial Rounded MT;
+    font-family: ArialRound;
+
     background-color: #888c;
     white-space: break-spaces;
     font-size: 6rem;
@@ -499,7 +538,7 @@ textarea:hover {
 }
 
 .btn {
-    font-family: Arial Rounded MT;
+    font-family: ArialRound;
     display: table-cell;
     position: absolute;
     border-radius: 10px;
