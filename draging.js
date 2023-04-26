@@ -25,7 +25,15 @@ function updateFirst(event) {
     setColor(event.target.value);
 }
 
+function subLink(x){
+    changeSmall();
+    // console.log(x.href);
+    // window.location.hash = x.name;
+    // window.history.replaceState(null, null, x.name)
+}
+
 function changeSmall() {
+    
     link = document.getElementsByClassName("bigLink");
     // window.scrollTo(0, 0);
 
@@ -157,7 +165,7 @@ function mouseMove(e) {
 
     let offsetX = ((x - middleX) / middleX) * 30;
     let offsetY = ((y - middleY) / middleY) * 30;
-    let offsetZ = -(offsetX * offsetY / 600);
+    let offsetZ = -(offsetX * offsetY / 200);
     rotateBG(backGround, offsetX, offsetY, offsetZ);
     window.scrollTo(0, 0);
     // setTimeout(() => {
@@ -243,3 +251,5 @@ function invert() {
 //         // console.log(lastKnownScrollPosition)
 //     }
 // });
+
+

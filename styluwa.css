@@ -47,19 +47,18 @@ html {
 
 @keyframes kolor {
     from {
-        text-shadow: 0px 0px 6 px red;
+        text-shadow: 0px 0px 0px red;
         rotate: -1deg;
     }
 
     to {
-        text-shadow: 0px 0px 3px magenta;
+        text-shadow: 0px 0px 0px magenta;
         rotate: 1deg;
     }
 }
 
 
 a {
-    animation: kolor 3s linear 0s infinite alternate;
     display: block;
 
     font-size: 7rem;
@@ -76,7 +75,10 @@ a {
     white-space: break-spaces;
     max-width: 25vw;
 
-    transition: 1.9s 0.5s ease-in-out;
+    transition: 0.9s 0.1s ease-in-out;
+
+    text-shadow: -1px -1px 0 #fff4, 1px -1px 0 #fff4, -1px 1px 0 #fff4, 1px 1px 0 #fff4;
+    cursor: pointer;
 }
 
 .element:hover a {
@@ -141,6 +143,23 @@ a {
     }
 }
 
+@property --perspective {
+    syntax: '<number>'; /* <- defined as type number for the transition to work */
+    initial-value: 10000;
+    inherits: false;
+  }
+
+@keyframes rotate {
+    0% {
+        transform: perspective(2400px) rotateX(var(--rotateX)) rotateY(var(--rotateY)) translateZ(50px) rotateZ(var(--rotateZ, 0deg)) scaleY(0.79) translateY(0vh) scaleZ(1);
+    }
+
+
+    100% {
+        transform: perspective(2500px) rotateX(var(--rotateX)) rotateY(var(--rotateY)) translateZ(50px) rotateZ(var(--rotateZ, 0deg)) scaleY(0.8) translateY(0vh) scaleZ(1);
+    }
+}
+
 .bg {
     position: relative;
     width: 100vw;
@@ -159,9 +178,14 @@ a {
 
     transform-style: preserve-3d;
     transform-origin: center;
-    transform: perspective(100000px) rotateX(var(--rotateX)) rotateY(var(--rotateY)) translateZ(50px) rotateZ(var(--rotateZ, 0deg)) scaleY(0.8) translateY(0vh) scaleZ(1);
 
+    animation: rotate 2s infinite ease-in-out alternate;
 
+    transition: transform 10s;
+}
+
+.bg:hover{
+    animation-duration: 0.9s;
 }
 
 .wall {
@@ -407,18 +431,19 @@ hr:hover {
 
 @keyframes hue {
     0% {
-        filter: hue-rotate(0deg);
-
+        rotate: 0deg;
     }
 
-    90% {
-        filter: hue-rotate(9deg);
+    25% {
+        rotate: -1deg;
+    }
 
+    50% {
+        rotate: 0deg;
     }
 
     100% {
-        filter: hue-rotate(45deg);
-
+        rotate: 1deg;
     }
 }
 
@@ -430,15 +455,16 @@ body {
     height: 100vh;
     width: 100vw;
     animation-name: hue;
-    animation-duration: 17s;
+    animation-duration: 11s;
     animation-direction: alternate;
     animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
+    animation-timing-function: linear;
     background-image: url("https://cdn.wallpapersafari.com/14/40/jwluik.jpg");
     background-size: 100vw 100vh;
 
 
     overflow: hidden;
+
 }
 
 
