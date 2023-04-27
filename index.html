@@ -16,10 +16,21 @@
         href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap"
         rel="stylesheet">
 
-        <link rel="preload" href="RoundedMplus1c-Thin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="RoundedMplus1c-Thin.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 
 <body>
+    <!-- <svg>
+        <filter id="turbulence">
+            <feTurbulence id="feturbulence" type="noise" baseFrequency="0.1 0.2" numOctaves="2" result="NOISE">
+            </feTurbulence>
+            <feDisplacementMap in="SourceGraphic" in2="NOISE" scale="50">
+            </feDisplacementMap>
+            <animate xlink:href="#feturbulence" attributeName="baseFrequency" dur="600s" keyTimes="0;0.5;1"
+                values="0.2 0.01;0.02 0.4;0.1 0.02" repeatCount="indefinite"></animate>
+        </filter>
+        </filter>
+    </svg> -->
     <div class="bg">
         <div id="floor" class="wall"></div>
         <div id="ceiling" class="wall"></div>
@@ -52,7 +63,7 @@
         <div class="subPage" id="home">
 
             <div class="single ">
-                <div class="vertGroup"  style="text-shadow: 0px 1px white;">
+                <div class="vertGroup" style="text-shadow: 0px 1px white;">
                     <div class="element" style="font-weight: bold; letter-spacing: 2rem;">
                         <font color="green">czesc nazwam sie</font>
                     </div>
@@ -106,7 +117,7 @@
                 </div>
             </div>
 
-            
+
         </div>
 
         <div class="subPage" id="sekrety">
@@ -145,15 +156,18 @@
         </div>
 
         <div class="subPage" id="skandale">
+            <div class="element"><img src="http://tavmjong.free.fr/INKSCAPE/MANUAL/images/FILTERS/bubble.png"
+                    id="bubble2"></div>
             <div class="element">
                 <h1>┗|｀O′|┛ na razie brak skandali</h1>
             </div>
-            
+
         </div>
 
         <div class="subPage" id="(✿ ͡◕ ͜ʖ ͡◕✿)">
             <div class="vertGroup">
-                <div class="element"><a href="https://natkke.github.io/CSS---MY-SITE/" style="font-size: 4rem;">☆:.｡.o(≧▽≦)o.｡.:☆</a></div>
+                <div class="element"><a href="https://natkke.github.io/CSS---MY-SITE/"
+                        style="font-size: 4rem;">☆:.｡.o(≧▽≦)o.｡.:☆</a></div>
                 <!-- <div class="element" id="iframeWrap"><iframe src="https://natkke.github.io/CSS---MY-SITE/"
                         title="W3Schools Free Online Web Tutorials"></iframe></div> -->
             </div>
@@ -171,10 +185,14 @@
         <div class="subPage" id="ciekawostki">
             <div class="element">
                 <h1>na razie brak ciekawostek (；′⌒`)</h1>
+
             </div>
+            <div class="element"><img src="http://pngimg.com/uploads/soap_bubbles/soap_bubbles_PNG9.png" id="bubble">
+            </div>
+
         </div>
 
-        
+
         <div class="vertGroup"
             style="width: 60%; background-image: url(https://www.gifstop.com/images/backgrounds/purplewave2.gif); background-size: 100%;">
             <div class="single">

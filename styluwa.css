@@ -30,12 +30,29 @@
 }
 
 
+@font-face {
+    font-family: 'ArialRoundedMT';
+    src: url('fonts/ArialRoundedMTBold.eot');
+    src: url('fonts/ArialRoundedMTBold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/ArialRoundedMTBold.woff2') format('woff2'),
+        url('fonts/ArialRoundedMTBold.woff') format('woff'),
+        url('fonts/ArialRoundedMTBold.ttf') format('truetype'),
+        url('fonts/ArialRoundedMTBold.svg#fonts/ArialRoundedMTBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 ::selection {
-    background: #888; /* WebKit/Blink Browsers */
-  }
-  ::-moz-selection {
-    background: 888; /* Gecko Browsers */
-  }
+    background: #888;
+    /* WebKit/Blink Browsers */
+}
+
+::-moz-selection {
+    background: 888;
+    /* Gecko Browsers */
+}
 
 
 html {
@@ -89,9 +106,8 @@ a {
     box-shadow: inset 0px 0px 20px 0px gold;
     text-decoration-style: wavy;
     font-size: 8rem;
-    max-width: 16vmin;
+    max-width: 11vmin;
 
-    letter-spacing: 2vw;
 }
 
 
@@ -103,6 +119,7 @@ a {
     display: inline;
     font-size: 20rem;
     transition: 3.3s ease-in-out;
+
 }
 
 .bigLink::after {
@@ -123,11 +140,11 @@ a {
 
 .bigLink:hover {
     transition: 0.4s ease-out;
-  
+
 }
 
 .bigLink:hover::after {
-    scale: 0.6 0.9;
+    filter: contrast(10a);
 }
 
 @keyframes skala {
@@ -141,10 +158,11 @@ a {
 }
 
 @property --perspective {
-    syntax: '<number>'; /* <- defined as type number for the transition to work */
+    syntax: '<number>';
+    /* <- defined as type number for the transition to work */
     initial-value: 10000;
     inherits: false;
-  }
+}
 
 @keyframes rotate {
     0% {
@@ -178,11 +196,11 @@ a {
 
     animation: rotate 0.9s infinite ease-in-out alternate;
 
-}
 
-.bg:hover{
 
 }
+
+.bg:hover {}
 
 .wall {
     position: fixed;
@@ -323,6 +341,11 @@ img {
 
 }
 
+#bubble {
+    /* filter: url(#turbulence); */
+
+}
+
 h1 {
     max-width: 40vw;
     white-space: break-spaces;
@@ -451,7 +474,7 @@ hr:hover {
 
 
 body {
-    font-family: ArialRound;
+    font-family: ArialRoundedMT;
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -465,19 +488,19 @@ body {
     background-size: 100vw 100vh;
 
 
+
     overflow: hidden;
 
+
 }
 
 
-textarea{
+textarea {
     text-shadow: 0px 2px 0px white;
-    font-family: ArialRound !important;
     letter-spacing: 1rem;
-    font-weight: bold;
 }
 
-input{
+input {
     text-shadow: 0px 2px 0px black;
     font-weight: bold;
 }
@@ -489,7 +512,7 @@ input {
     max-width: 33vw;
     outline-radius: 0px;
     outline: 2px solid magenta;
-    font-family: ArialRound;
+    font-family: ArialRoundedMT;
 
     background-color: #888c;
     white-space: break-spaces;
@@ -612,4 +635,8 @@ iframe {
     height: 25vh;
     overflow: hidden;
 
+}
+
+svg {
+    position: absolute;
 }
