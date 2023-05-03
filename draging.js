@@ -210,20 +210,22 @@ let startY = 0;
 let startZ = 0;
 
 function startOrient(e) {
-    if (startX == 0) startX = e.gamma + 180;
-    if (startY == 0) startY = e.beta + 180;
+    if (startX == 0) startX = e.gamma + 360;
+    if (startY == 0) startY = e.beta + 360;
 }
 
 let shouldWaitMotion = false;
 function motion(e) {
     window.removeEventListener("deviceorientation", motion);
-    x = Math.min(Math.max((e.gamma + 180 - startX), -90), 90) / 4;
+    x = Math.min(Math.max((e.gamma + 360 - startX), -90), 90) /3;
 
-    y = Math.min(Math.max((e.beta + 180 - startY), -90), 90) / 2;
+    y = Math.min(Math.max((e.beta + 360 - startY), -90), 90) / 2;
     z = -(x * y / 200);
 
+    console.log(x, y)
 
-    rotateBG(backGround, x, y, z, 1-Math.abs(x)/225, 1-Math.abs(y)/112);
+
+    rotateBG(backGround, x, y, z, 1-Math.abs(x)/150, 1-Math.abs(y)/112);
 
     setTimeout(() => {
         window.addEventListener("deviceorientation", motion, true);
@@ -239,6 +241,8 @@ function requestOrientationPermission() {
             }
         })
         .catch(console.error)
+    
+
 }
 
 if (window.DeviceOrientationEvent) {
