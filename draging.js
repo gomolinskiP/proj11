@@ -27,6 +27,10 @@ function updateFirst(event) {
 
 function subLink(x){
     changeSmall();
+     setTimeout(()=>{
+        window.scrollTo(0, 0);
+     }, "40");      
+
     // console.log(x.href);
     // window.location.hash = x.name;
     // window.history.replaceState(null, null, x.name)
@@ -82,7 +86,7 @@ draggables.forEach(draggable => {
     });
 });
 
-function rotateBG(element, rotX, rotY, rotZ) {
+function rotateBG(element, rotX, rotY, rotZ, scaleX, scaleY) {
 
     // if (event.type == "touchmove") {
     //     x = event.touches[0].clientX;
@@ -98,6 +102,13 @@ function rotateBG(element, rotX, rotY, rotZ) {
     element.style.setProperty("--rotateX", (rotY).toFixed(1) + "deg");
     element.style.setProperty("--rotateY", (-rotX).toFixed(1) + "deg");
     element.style.setProperty("--rotateZ", (rotZ).toFixed(1) + "deg");
+
+    element.style.setProperty("--scaleX", scaleX);
+
+    element.style.setProperty("--scaleY", scaleY);
+
+    
+
 
     // console.log((rotY).toFixed(2))
 
@@ -166,7 +177,12 @@ function mouseMove(e) {
     let offsetX = ((x - middleX) / middleX) * 30;
     let offsetY = ((y - middleY) / middleY) * 30;
     let offsetZ = -(offsetX * offsetY / 200);
-    rotateBG(backGround, offsetX, offsetY, offsetZ);
+
+let scaleX = 1 - 0.2*(Math.abs(x - middleX) / middleX);
+let scaleY = 1 - 0.4*(Math.abs(y - middleY) / middleY);
+
+
+    rotateBG(backGround, offsetX, offsetY, offsetZ, scaleX, scaleY);
     window.scrollTo(0, 0);
     // setTimeout(() => {
     window.addEventListener('mousemove', mouseMove);
@@ -201,11 +217,13 @@ function startOrient(e) {
 let shouldWaitMotion = false;
 function motion(e) {
     window.removeEventListener("deviceorientation", motion);
-    x = Math.min(Math.max((e.gamma + 180 - startX), -90), 90) / 2;
+    x = Math.min(Math.max((e.gamma + 180 - startX), -90), 90) / 4;
 
     y = Math.min(Math.max((e.beta + 180 - startY), -90), 90) / 2;
     z = -(x * y / 200);
-    rotateBG(backGround, x, y, z);
+
+
+    rotateBG(backGround, x, y, z, 1-Math.abs(x)/225, 1-Math.abs(y)/112);
 
     setTimeout(() => {
         window.addEventListener("deviceorientation", motion, true);

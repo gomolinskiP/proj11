@@ -195,6 +195,7 @@ a {
     transform-origin: center;
 
     animation: rotate 0.9s infinite ease-in-out alternate;
+    scale: var(--scaleX, 1) var(--scaleY, 1);
 
 
 
@@ -208,7 +209,8 @@ a {
     background-size: 100% 100%;
     image-rendering: optimizeSpeed;
     box-shadow: inset 0px 0px 30vh black;
-    filter: invert(1) blur(0.15vw) contrast(0.5) saturate(10);
+    filter: invert(1) blur(6px) contrast(1) saturate(0.1);
+
 }
 
 #floor {
@@ -486,6 +488,7 @@ body {
     animation-timing-function: linear;
     background-image: url("https://cdn.wallpapersafari.com/14/40/jwluik.jpg");
     background-size: 100vw 100vh;
+    backdrop-filter: blur(5px);
 
 
 
