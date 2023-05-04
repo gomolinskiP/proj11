@@ -205,24 +205,55 @@ if (window.matchMedia("(pointer: fine)").matches) {
 //     }
 // })
 
-let startX = 0;
-let startY = 0;
-let startZ = 0;
+let startX = 999;
+let startY = 999;
+let startZ = 999;
+let lastX = startX;
+let lastY = startY;
+let lastZ = startZ;
 
-function startOrient(e) {
-    if (startX == 0) startX = e.gamma + 360;
-    if (startY == 0) startY = e.beta + 360;
-}
+
+let startOrient = 1
 
 let shouldWaitMotion = false;
 function motion(e) {
     window.removeEventListener("deviceorientation", motion);
-    x = Math.min(Math.max((e.gamma + 360 - startX), -90), 90) /3;
 
-    y = Math.min(Math.max((e.beta + 360 - startY), -90), 90) / 2;
-    z = -(x * y / 200);
+    if(startOrient == 1){
+        startX = e.gamma;
+        startY = e.beta;
+        startZ = e.alpha;
 
-    console.log(x, y)
+        lastX = startX;
+        lastY = startY;
+        lastZ = startZ;
+
+        startOrient = 0;
+    }
+    
+    var nowX = e.gamma;
+    var nowY = e.beta;
+    var nowZ = e.alpha;
+
+
+    if(nowX > 80 && lastX < -80) startX = startX + 180;
+    if(nowX < -80 && lastX > 80) startX = startX - 180;
+
+    if(nowY > 170 && lastY < -170) startY = startY + 360;
+    if(nowY < -170 && lastY > 170) startY = startY - 360;
+
+    if(nowZ > 170 && lastZ < -170) startZ = startZ + 360;
+    if(nowZ < -170 && lastZ > 170) startZ = startZ - 360;
+
+
+
+    x = Math.min(Math.max((nowX - startX), -90), 90) /3;
+
+    y = Math.min(Math.max((nowY - startY), -90), 90) / 2;
+
+    z = Math.min(Math.max((nowZ - startZ), -90), 90) / 18;
+
+    console.log(e.gamma, startX, e.gamma - startX)
 
 
     rotateBG(backGround, x, y, z, 1-Math.abs(x)/150, 1-Math.abs(y)/112);
@@ -231,22 +262,31 @@ function motion(e) {
         window.addEventListener("deviceorientation", motion, true);
     }, "40")
 
+    lastX = nowX;
+    lastY = nowY;
+
 }
 
 function requestOrientationPermission() {
-    DeviceOrientationEvent.requestPermission()
+    startOrient = 1;
+    try{
+        DeviceOrientationEvent.requestPermission()
         .then(response => {
             if (response == 'granted') {
                 window.addEventListener('deviceorientation', motion, true)
             }
         })
         .catch(console.error)
+    }
+    catch{
+        console.log('request permission not possible')
+    }
+    
     
 
 }
 
 if (window.DeviceOrientationEvent) {
-    window.addEventListener("deviceorientation", startOrient, { once: true })
     window.addEventListener("deviceorientation", motion, true);
 } else {
     console.log("DeviceMotionEvent is not supported");
