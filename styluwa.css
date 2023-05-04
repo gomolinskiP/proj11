@@ -209,7 +209,7 @@ a {
     background-size: 100% 100%;
     image-rendering: optimizeSpeed;
     box-shadow: inset 0px 0px 30vh black;
-    filter: invert(1) blur(6px) contrast(1) saturate(0.1);
+    filter: invert(1) blur(2px) contrast(1) saturate(0.1);
 
 }
 
