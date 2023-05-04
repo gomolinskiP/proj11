@@ -237,7 +237,7 @@ a {
     right: 85vw;
     top: -100vh;
     height: 300vh;
-    width: 50vw;
+    width: 100vw;
     transform-origin: right;
     transform: rotateY(30deg) translateZ(-30px);
 }
@@ -247,7 +247,7 @@ a {
     left: 85vw;
     top: -100vh;
     height: 300vh;
-    width: 50vw;
+    width: 100vw;
     transform-origin: left;
     transform: rotateY(-30deg) translateZ(-30px);
 

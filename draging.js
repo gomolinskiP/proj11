@@ -256,7 +256,7 @@ function motion(e) {
     console.log(e.gamma, startX, e.gamma - startX)
 
 
-    rotateBG(backGround, x, y, z, 1-Math.abs(x)/150, 1-Math.abs(y)/112);
+    rotateBG(backGround, x, y, z, 1-Math.abs(x)/100, 1-Math.abs(y)/100);
 
     setTimeout(() => {
         window.addEventListener("deviceorientation", motion, true);
