@@ -251,7 +251,7 @@ function motion(e) {
 
     y = Math.min(Math.max((nowY - startY), -90), 90) / 2;
 
-    z = Math.min(Math.max((nowZ - startZ), -90), 90) / 18;
+    z = -(x * y / 200);
 
     console.log(e.gamma, startX, e.gamma - startX)
 
