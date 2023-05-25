@@ -75,6 +75,11 @@ const draggables = document.querySelectorAll('.draggable');
 const backGround = document.querySelector('.bg');
 
 
+const elementy = document.querySelectorAll('.element');
+elementy.forEach((item, index) => {
+    item.style.setProperty('animation-duration', Math.round(Math.random()*20+10) + "s")
+}) 
+
 
 draggables.forEach(draggable => {
     draggable.addEventListener('dragstart', () => {
