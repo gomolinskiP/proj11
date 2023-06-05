@@ -202,7 +202,7 @@ a {
 
 .wall {
     position: fixed;
-    background-image: url("https://i.pinimg.com/236x/f4/91/63/f49163501ee55f7172bb30d690738585--paving-slabs-texture-art.jpg");
+    background-image: url("img/wall/1.jpg");
     background-size: 100% 100%;
     image-rendering: optimizeSpeed;
     box-shadow: inset 0px 0px 30vh black;
@@ -295,13 +295,13 @@ a {
 
 @keyframes elementMove {
     0% {
-        rotate: -3deg;
+        
         translate: -6px 3px;
     }
 
 
     100% {
-        rotate: 3deg;
+       
         translate: 2px -7px;
 
     }
@@ -502,7 +502,7 @@ body {
     height: 100vh;
     width: 100vw;
 
-    background-image: url("https://cdn.wallpapersafari.com/14/40/jwluik.jpg");
+    background-image: url("img/bg/1.gif");
     background-size: 100vw 100vh;
     backdrop-filter: blur(5px);
 
