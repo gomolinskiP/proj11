@@ -91,7 +91,7 @@ a {
     cursor: pointer;
 }
 
-.element:hover a {
+.element:hover a:not(.bigLink) {
 
     transition: 0.3s ease-out;
 
@@ -118,7 +118,7 @@ a {
 
 .bigLink::after {
     content: "◟ᴥ◞";
-    text-shadow: 0px -3px 0px black;
+    text-shadow: 0px -3px 1px black;
     color: white;
     position: absolute;
     right: 0%;
@@ -130,6 +130,7 @@ a {
     transform-origin: center;
     margin: auto;
     padding: 0;
+    transform: translateZ(100px);
 }
 
 .bigLink:hover {
@@ -138,7 +139,7 @@ a {
 }
 
 .bigLink:hover::after {
-    filter: contrast(10a);
+    filter: contrast(10);
 }
 
 @keyframes skala {
@@ -160,12 +161,12 @@ a {
 
 @keyframes rotate {
     0% {
-        transform: perspective(2400px) rotateX(var(--rotateX)) rotateY(var(--rotateY)) translateZ(50px) rotateZ(var(--rotateZ, 0deg)) scaleY(0.77) translateY(0vh) scaleZ(1);
+        transform: perspective(2000px) rotateX(var(--rotateX)) rotateY(var(--rotateY)) translateZ(50px) rotateZ(var(--rotateZ, 0deg)) scaleY(0.8) translateY(0vh) scaleZ(0.4);
     }
 
 
     100% {
-        transform: perspective(2500px) rotateX(var(--rotateX)) rotateY(var(--rotateY)) translateZ(50px) rotateZ(var(--rotateZ, 0deg)) scaleY(0.8) translateY(0vh) scaleZ(1);
+        transform: perspective(2500px) rotateX(var(--rotateX)) rotateY(var(--rotateY)) translateZ(50px) rotateZ(var(--rotateZ, 0deg)) scaleY(0.8) translateY(0vh) scaleZ(0.4);
     }
 }
 
