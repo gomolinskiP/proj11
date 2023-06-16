@@ -166,7 +166,7 @@ a {
 
 
     100% {
-        transform: perspective(2500px) rotateX(var(--rotateX)) rotateY(var(--rotateY)) translateZ(50px) rotateZ(var(--rotateZ, 0deg)) scaleY(0.8) translateY(0vh) scaleZ(0.4);
+        transform: perspective(3000px) rotateX(var(--rotateX)) rotateY(var(--rotateY)) translateZ(50px) rotateZ(var(--rotateZ, 0deg)) scaleY(0.8) translateY(0vh) scaleZ(0.4);
     }
 }
 
