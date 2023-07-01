@@ -326,12 +326,16 @@ a {
     font-size: 4.4rem !important;
     padding: 0.3vh 0.1vw;
     box-sizing: outline-box;
-
     position: relative;
     cursor: crosshair;
 
     animation: elementMove infinite ease-in-out alternate-reverse;
     animation-delay: 0.9s;
+
+
+    outline-width: 1px;
+    outline-color: #fff2;
+    outline-style: solid;
 }
 
 
@@ -343,7 +347,9 @@ a {
 .element:focus {
     transition: ease-in-out 0.3s 0.1ms;
     background-color: #0004;
-    outline-width: 5px;
+    outline-width: 4px;
+    outline-color: #fff4;
+
     transform: translateZ(150px) scaleX(1.33) scaleY(1.11);
 
     filter: saturate(1.33) blur(0);
@@ -403,7 +409,6 @@ h1 {
     transform-style: preserve-3d;
     transform: translateZ(10px);
     transition: ease-out 0.5s;
-    background-color: #f0f2;
     /* outline: #0006 1px solid; */
     align-content: center;
     justify-content: center;
@@ -429,7 +434,6 @@ h1 {
     transform-style: preserve-3d;
     transform: translateZ(15px);
     transition: ease-out 0.4s;
-    background-color: #f0f2;
     /* outline: #0006 1px solid; */
     box-sizing: outline-box;
 
@@ -504,7 +508,7 @@ body {
     font-family: ArialRoundedMT;
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
 
     background-image: url("img/bg/1.gif");
