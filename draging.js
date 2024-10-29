@@ -189,9 +189,9 @@ let scaleY = 1 - 0.4*(Math.abs(y - middleY) / middleY);
 
     rotateBG(backGround, offsetX, offsetY, offsetZ, scaleX, scaleY);
     window.scrollTo(0, 0);
-    // setTimeout(() => {
+    setTimeout(() => {
     window.addEventListener('mousemove', mouseMove);
-    // }, "30")
+    }, "30")
 }
 
 if (window.matchMedia("(pointer: fine)").matches) {

@@ -195,8 +195,6 @@ a {
 
     scale: var(--scaleX, 1) var(--scaleY, 1);
 
-
-
 }
 
 .bg:hover {}
@@ -336,6 +334,10 @@ a {
     outline-width: 1px;
     outline-color: #fff2;
     outline-style: solid;
+}
+
+.asciiArt{
+    text-align: left;
 }
 
 

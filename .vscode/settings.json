@@ -1,6 +1,6 @@
 {
     "window.autoDetectColorScheme": true,
     "workbench.preferredLightColorTheme": "Default Light Modern",
-    "workbench.colorTheme": "Default Light Modern",
-    "workbench.preferredDarkColorTheme": "Monokai"
+    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.preferredDarkColorTheme": "Default Dark Modern"
 }
